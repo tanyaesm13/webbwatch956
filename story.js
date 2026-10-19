@@ -247,18 +247,39 @@
 
   function load() {
     if (!slug) { showNotFound(); return; }
-    var postP = fetch(API_BASE + "?slug=" + encodeURIComponent(slug) + "&_fields=id,date,slug,title,content")
-      .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); });
+    // Website stories first (stories/<slug>.json); WordPress as fallback.
+    var localP = fetch("stories/" + encodeURIComponent(slug) + ".json")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; });
     var photosP = fetch(PHOTOS_URL).then(function (r) {
       if (!r.ok) throw new Error("http " + r.status);
       return r.json();
     }).catch(function () { return {}; });
-    Promise.all([postP, photosP]).then(function (res) {
-      if (!res[0].length) { showNotFound(); return; }
-      var p = res[0][0];
-      lang = isSpanish(p) ? "es" : "en";
-      render(p, res[1] || {});
-      loadNeighbors(p);
+    Promise.all([localP, photosP]).then(function (res) {
+      if (res[0]) {
+        var s = res[0];
+        var p = {
+          id: "local-" + s.slug,
+          date: s.date,
+          slug: s.slug,
+          title: { rendered: s.title },
+          excerpt: { rendered: s.excerpt || "" },
+          content: { rendered: s.content }
+        };
+        lang = isSpanish(p) ? "es" : "en";
+        render(p, res[1] || {});
+        loadNeighbors(p);
+        return;
+      }
+      var postP = fetch(API_BASE + "?slug=" + encodeURIComponent(slug) + "&_fields=id,date,slug,title,content")
+        .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); });
+      Promise.all([postP, photosP]).then(function (res2) {
+        if (!res2[0].length) { showNotFound(); return; }
+        var p2 = res2[0][0];
+        lang = isSpanish(p2) ? "es" : "en";
+        render(p2, res2[1] || {});
+        loadNeighbors(p2);
+      }).catch(function () { showNotFound(); });
     }).catch(function () { showNotFound(); });
   }
 

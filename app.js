@@ -6,7 +6,9 @@
   var API = API_BASE + "?per_page=100&_fields=id,date,slug,title,excerpt,link";
   var PHOTOS_URL = "photos.json";
   var EPISODES_URL = "episodes.json";
+  var LOCAL_INDEX_URL = "stories/index.json";
   var RENDER_COUNT = 13; // hero + 12 grid cards
+  var localBySlug = {}; // slug -> local story JSON (website is the publication now)
 
   var I18N = {
     en: {
@@ -351,36 +353,83 @@
   function enrichSources() {
     var list = renderedPosts().filter(function (p) { return !(p.id in contentCache); });
     if (!list.length) return;
-    var ids = list.map(function (p) { return p.id; }).join(",");
+    // Website stories: parse sources straight from the local content.
+    list.forEach(function (p) {
+      if (String(p.id).indexOf("local-") === 0 && localBySlug[p.slug]) {
+        contentCache[p.id] = parseSources(localBySlug[p.slug].content);
+      }
+    });
+    var remote = list.filter(function (p) { return !(p.id in contentCache); });
+    if (!remote.length) { render(); return; }
+    var ids = remote.map(function (p) { return p.id; }).join(",");
     fetch(API_BASE + "?include=" + ids + "&_fields=id,content&per_page=100")
       .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
       .then(function (items) {
         items.forEach(function (it) {
           contentCache[it.id] = parseSources(it.content && it.content.rendered);
         });
-        list.forEach(function (p) { if (!(p.id in contentCache)) contentCache[p.id] = null; });
+        remote.forEach(function (p) { if (!(p.id in contentCache)) contentCache[p.id] = null; });
         render();
       })
       .catch(function () {
-        list.forEach(function (p) { contentCache[p.id] = null; });
+        remote.forEach(function (p) { contentCache[p.id] = null; });
         render();
       });
+  }
+
+  /* Normalize a local website story (stories/<slug>.json) into the
+     WordPress-shaped object the renderers expect. Local wins on slug. */
+  function normLocal(s) {
+    return {
+      id: "local-" + s.slug,
+      date: s.date,
+      slug: s.slug,
+      title: { rendered: s.title },
+      excerpt: { rendered: s.excerpt || "" },
+      link: "story.html?slug=" + encodeURIComponent(s.slug)
+    };
+  }
+
+  function loadLocal() {
+    return fetch(LOCAL_INDEX_URL)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (slugs) {
+        return Promise.all((slugs || []).map(function (sg) {
+          return fetch("stories/" + encodeURIComponent(sg) + ".json")
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .catch(function () { return null; });
+        }));
+      })
+      .then(function (arr) { return (arr || []).filter(Boolean); })
+      .catch(function () { return []; });
   }
 
   function load() {
     var postsP = fetch(API).then(function (r) {
       if (!r.ok) throw new Error("http " + r.status);
       return r.json();
-    });
+    }).catch(function () { return []; });
+    var localP = loadLocal();
     var photosP = fetch(PHOTOS_URL).then(function (r) {
       if (!r.ok) throw new Error("http " + r.status);
       return r.json();
     }).catch(function () { return {}; });
-    Promise.all([postsP, photosP]).then(function (res) {
-      allPosts = res[0].slice().sort(function (a, b) {
-        return new Date(b.date) - new Date(a.date);
+    Promise.all([postsP, localP, photosP]).then(function (res) {
+      var wpPosts = res[0] || [];
+      var locals = res[1] || [];
+      localBySlug = {};
+      var localSlugs = {};
+      locals.forEach(function (s) {
+        localBySlug[s.slug] = s;
+        localSlugs[s.slug] = true;
       });
-      photoMap = res[1] || {};
+      // Website stories override WordPress entries with the same slug.
+      allPosts = wpPosts.filter(function (p) { return !localSlugs[p.slug]; })
+        .concat(locals.map(normLocal))
+        .sort(function (a, b) {
+          return new Date(b.date) - new Date(a.date);
+        });
+      photoMap = res[2] || {};
       render();
       renderArchive();
       enrichSources();
