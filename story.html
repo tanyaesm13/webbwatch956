@@ -87,7 +87,7 @@
     <div id="lol-nowplaying" style="font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tap play to listen</div>
   </div>
   <input id="lol-vol" type="range" min="0" max="100" value="80" aria-label="Volume" style="flex:0 1 110px;accent-color:#e8a33d;cursor:pointer;">
-  <audio id="lol-audio" src="https://161.153.49.192/listen/la_onda_libre/radio.mp3" preload="none"></audio>
+  <audio id="lol-audio" src="https://stream.webbwatch956.com/listen/la_onda_libre/radio.mp3" preload="none"></audio>
 </div>
 <script>
 (function(){
@@ -111,7 +111,7 @@
     }
   });
   function tick(){
-    fetch("https://161.153.49.192/api/nowplaying/la_onda_libre")
+    fetch("https://stream.webbwatch956.com/api/nowplaying/la_onda_libre")
       .then(function(r){ return r.json(); })
       .then(function(d){
         var s = d && d.now_playing && d.now_playing.song;
