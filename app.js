@@ -432,7 +432,9 @@
         localSlugs[s.slug] = true;
       });
       // Website stories override WordPress entries with the same slug.
-      allPosts = wpPosts.filter(function (p) { return !localSlugs[p.slug]; })
+      // The "We've Moved" announcement lives on WordPress only — never show it on the official site.
+      var HIDDEN_WP_SLUGS = { "weve-moved-nos-mudamos": true };
+      allPosts = wpPosts.filter(function (p) { return !localSlugs[p.slug] && !HIDDEN_WP_SLUGS[p.slug]; })
         .concat(locals.map(normLocal))
         .sort(function (a, b) {
           return new Date(b.date) - new Date(a.date);
