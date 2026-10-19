@@ -1,6 +1,13 @@
 {
   "episodes": [
     {
+      "file": "videos/newscast-episode-2026-10-19.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 19, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 19 de octubre de 2026",
+      "desc_en": "Walter & Willa Webb with today's top Webb County stories.",
+      "desc_es": "Walter y Willa Webb con las principales historias del Condado de Webb de hoy."
+    },
+    {
       "date": "2026-10-19",
       "desc_en": "A quick hello from Walter and Willa Webb, your Webb Watch 956 news anchors.",
       "desc_es": "Un saludo rápido de Walter y Willa Webb, tus presentadores de Webb Watch 956.",
