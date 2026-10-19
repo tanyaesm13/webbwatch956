@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webb Watch 956 — Laredo &amp; Webb County News</title>
+<meta name="description" content="Webb Watch 956: investigative journalism for Webb County, Texas — Laredo and surrounding areas. Bilingual. Independent.">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="#top">
+      <img src="images/logo.jpg" alt="Webb Watch 956 logo" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">WEBB WATCH 956</span>
+        <span class="brand-tag" id="brand-tag">Watching and caring for the Webb County community — Laredo and surrounding areas</span>
+      </span>
+    </a>
+    <nav class="masthead-nav">
+      <a href="#latest" data-i18n="nav-stories">Stories</a>
+      <a href="#anchors" data-i18n="nav-anchors">Anchors</a>
+      <a href="#election" data-i18n="nav-election">Election 2026</a>
+      <a href="#newsletter" data-i18n="nav-newsletter">Newsletter</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="lang-en" class="lang-btn active" type="button">EN</button>
+        <button id="lang-es" class="lang-btn" type="button">ES</button>
+      </div>
+    </nav>
+  </div>
+  <div class="breaking-bar"><span class="breaking-label" data-i18n="breaking">LIVE DESK</span><span class="breaking-text" id="breaking-text">Walter &amp; Willa Webb bring you the latest from the Webb Watch 956 News Desk.</span></div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <figure class="hero-photo" id="hero-figure" hidden>
+        <img id="hero-img" src="" alt="">
+        <figcaption id="hero-credit"></figcaption>
+      </figure>
+      <div class="hero-text">
+      <p class="kicker" data-i18n="hero-kicker">Top Story</p>
+      <h1 id="hero-title">Loading the latest…</h1>
+      <p class="hero-excerpt" id="hero-excerpt"></p>
+      <p class="hero-meta" id="hero-meta"></p>
+      <div class="hero-sources" id="hero-sources"></div>
+      <a class="btn-gold" id="hero-link" href="#" data-i18n="read-full">Read the full story →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="anchors" id="anchors">
+    <div class="section-inner">
+      <h2 data-i18n="anchors-title">Meet Your Anchors</h2>
+      <p class="section-sub" data-i18n="anchors-sub">The digital news anchors of the Webb Watch 956 News Desk — bringing Webb County the stories that matter, every day.</p>
+      <img src="images/newsdesk.jpg" alt="Walter and Willa Webb at the Webb Watch 956 News Desk" class="desk-photo">
+      <div class="anchor-cards">
+        <article class="anchor-card">
+          <img src="images/walter.jpg" alt="Walter Webb">
+          <h3>Walter Webb</h3>
+          <p data-i18n="walter-bio">Co-anchor of the Webb Watch 956 News Desk. The Watchdog — keeping an eye on city hall, the county, and everybody in between.</p>
+        </article>
+        <article class="anchor-card">
+          <img src="images/willa.jpg" alt="Willa Webb">
+          <h3>Willa Webb</h3>
+          <p data-i18n="willa-bio">Co-anchor of the Webb Watch 956 News Desk. Sharp questions, community first — covering the stories Laredo talks about.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest" id="latest">
+    <div class="section-inner">
+      <h2 data-i18n="latest-title">Latest Stories</h2>
+      <p class="section-sub" data-i18n="latest-sub">Fresh from the newsroom — published on our WordPress wire and updated automatically.</p>
+      <div class="story-grid" id="story-grid">
+        <p class="loading" data-i18n="loading">Loading stories…</p>
+      </div>
+      <p class="api-note"><span data-i18n="api-note">Stories publish daily on</span> <a href="https://webbwatch956.wordpress.com">webbwatch956.wordpress.com</a></p>
+    </div>
+  </section>
+
+  <section class="election" id="election">
+    <div class="section-inner">
+      <h2 data-i18n="election-title">Election 2026</h2>
+      <p class="section-sub" data-i18n="election-sub">Early voting: October 19–30. Election Day: November 3. Know your ballot before you go.</p>
+      <div class="election-cards">
+        <a class="election-card" id="ballot-en" href="https://webbwatch956.wordpress.com/2026/10/18/your-webb-county-ballot-every-race-beyond-mayor-and-congress-explained/">
+          <h3>Your Webb County Ballot</h3>
+          <p>Every race beyond mayor and Congress, explained.</p>
+          <span class="card-link">Read the guide →</span>
+        </a>
+        <a class="election-card" id="ballot-es" href="https://webbwatch956.wordpress.com/2026/10/18/tu-boleta-del-condado-de-webb-todas-las-contiendas-mas-alla-de-alcalde-y-congreso-explicadas/">
+          <h3>Tu Boleta del Condado de Webb</h3>
+          <p>Todas las contiendas más allá de alcalde y congreso, explicadas.</p>
+          <span class="card-link">Lee la guía →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <div class="section-inner newsletter-box">
+      <h2 data-i18n="nl-title">The Webb Watch Newsletter</h2>
+      <p data-i18n="nl-sub">The day's top Webb County stories, in your inbox. Launching soon — leave your email and we'll let you know.</p>
+      <form id="nl-form" class="nl-form">
+        <input type="email" id="nl-email" data-i18n-ph="nl-ph" placeholder="you@example.com" required>
+        <button type="submit" class="btn-gold" data-i18n="nl-btn">Notify me</button>
+      </form>
+      <p class="nl-note" id="nl-note" hidden data-i18n="nl-note">You're on the list — the newsletter is coming soon. Thanks for watching with us.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.jpg" alt="Webb Watch 956 logo" class="footer-logo">
+      <p><strong>WEBB WATCH 956</strong><br><span data-i18n="footer-about">Independent investigative journalism for Webb County, Texas — Laredo and surrounding areas. Bilingual, community-first, always watching.</span></p>
+    </div>
+    <div class="footer-links">
+      <p class="footer-head" data-i18n="footer-follow">Follow the Watch</p>
+      <a href="https://www.instagram.com/webbwatch956/" target="_blank" rel="noopener">Instagram — @webbwatch956</a>
+      <a href="https://www.facebook.com/61595222024760" target="_blank" rel="noopener">Facebook — Webb Watch 956</a>
+      <a href="https://webbwatch956.wordpress.com" target="_blank" rel="noopener">WordPress — webbwatch956.wordpress.com</a>
+    </div>
+  </div>
+  <p class="copyright">© 2026 Webb Watch 956. <span data-i18n="footer-rights">All stories end with: Webb Watch 956.</span></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
