@@ -1,1 +1,21 @@
-{"episodes":[{"date":"2026-10-19","desc_en":"Walter and Willa cover early voting now open in Webb County and the 26 verified events happening through Halloween — 17 of them free.","desc_es":"Walter y Willa cubren la votación anticipada ya abierta en el Condado de Webb y los 26 eventos verificados hasta Halloween — 17 de ellos gratis.","file":"videos/newscast-2026-10-19.mp4","title_en":"Webb Watch 956 News Desk — October 19, 2026","title_es":"Noticiero de Webb Watch 956 — 19 de octubre de 2026"},{"date":"2026-10-18","desc_en":"The premiere broadcast of the Webb Watch 956 News Desk with anchors Walter and Willa Webb.","desc_es":"La transmisión de estreno del Noticiero de Webb Watch 956 con los presentadores Walter y Willa Webb.","file":"videos/newscast-2026-10-18.mp4","title_en":"Webb Watch 956 News Desk — Premiere","title_es":"Noticiero de Webb Watch 956 — Estreno"}],"latest":"videos/newscast-2026-10-19.mp4"}
+{
+ "episodes": [
+  {
+   "date": "2026-10-19",
+   "desc_en": "A quick hello from Walter and Willa Webb, your Webb Watch 956 news anchors.",
+   "desc_es": "Un saludo r\u00e1pido de Walter y Willa Webb, tus presentadores de Webb Watch 956.",
+   "file": "videos/newscast-2026-10-19.mp4",
+   "title_en": "Meet Walter & Willa \u2014 Your Webb Watch 956 Anchors",
+   "title_es": "Conoce a Walter y Willa \u2014 Tus Presentadores de Webb Watch 956"
+  },
+  {
+   "date": "2026-10-18",
+   "desc_en": "The premiere broadcast of the Webb Watch 956 News Desk with anchors Walter and Willa Webb.",
+   "desc_es": "La transmisi\u00f3n de estreno del Noticiero de Webb Watch 956 con los presentadores Walter y Willa Webb.",
+   "file": "videos/newscast-2026-10-18.mp4",
+   "title_en": "Webb Watch 956 News Desk \u2014 Premiere",
+   "title_es": "Noticiero de Webb Watch 956 \u2014 Estreno"
+  }
+ ],
+ "latest": "videos/newscast-2026-10-19.mp4"
+}
