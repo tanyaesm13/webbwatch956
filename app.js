@@ -5,12 +5,17 @@
   var API_BASE = "https://public-api.wordpress.com/wp/v2/sites/webbwatch956.wordpress.com/posts";
   var API = API_BASE + "?per_page=100&_fields=id,date,slug,title,excerpt,link";
   var PHOTOS_URL = "photos.json";
+  var EPISODES_URL = "episodes.json";
   var RENDER_COUNT = 13; // hero + 12 grid cards
 
   var I18N = {
     en: {
-      "nav-stories": "Stories", "nav-anchors": "Anchors", "nav-election": "Election 2026",
+      "nav-stories": "Stories", "nav-livedesk": "Live Desk", "nav-anchors": "Anchors", "nav-election": "Election 2026",
       "nav-newsletter": "Newsletter", "breaking": "LIVE DESK",
+      "livedesk-title": "Live Desk — Daily Newscast",
+      "livedesk-sub": "Walter and Willa Webb bring you the day's top Webb County stories, every evening.",
+      "livedesk-archive": "Past Newscasts",
+      "livedesk-youtube": "🔴 Watch our live webcast on YouTube",
       "brand-tag": "Watching and caring for the Webb County community — Laredo and surrounding areas",
       "hero-kicker": "Top Story", "read-full": "Read the full story →",
       "anchors-title": "Meet Your Anchors",
@@ -18,9 +23,12 @@
       "walter-bio": "Co-anchor of the Webb Watch 956 News Desk. The Watchdog — keeping an eye on city hall, the county, and everybody in between.",
       "willa-bio": "Co-anchor of the Webb Watch 956 News Desk. Sharp questions, community first — covering the stories Laredo talks about.",
       "latest-title": "Latest Stories",
-      "latest-sub": "Fresh from the newsroom — published on our WordPress wire and updated automatically.",
+      "latest-sub": "Fresh from the newsroom — read every story right here.",
       "loading": "Loading stories…",
-      "api-note": "Stories publish daily on",
+      "api-note": "New stories publish daily — check back often.",
+      "archive-title": "All Stories",
+      "archive-sub": "Every Webb Watch 956 story, newest first. Read them all right here.",
+      "filter-all": "All", "filter-en": "English", "filter-es": "Español",
       "election-title": "Election 2026",
       "election-sub": "Early voting: October 19–30. Election Day: November 3. Know your ballot before you go.",
       "nl-title": "The Webb Watch Newsletter",
@@ -36,8 +44,12 @@
       "sources-full": "Sources cited in the full story →"
     },
     es: {
-      "nav-stories": "Historias", "nav-anchors": "Presentadores", "nav-election": "Elecciones 2026",
+      "nav-stories": "Historias", "nav-livedesk": "En Vivo", "nav-anchors": "Presentadores", "nav-election": "Elecciones 2026",
       "nav-newsletter": "Boletín", "breaking": "EN VIVO",
+      "livedesk-title": "En Vivo — Noticiero Diario",
+      "livedesk-sub": "Walter y Willa Webb te traen las principales historias del Condado de Webb, cada noche.",
+      "livedesk-archive": "Noticieros Anteriores",
+      "livedesk-youtube": "🔴 Mira nuestra transmisión en vivo en YouTube",
       "brand-tag": "Vigilando y cuidando a la comunidad del Condado de Webb — Laredo y áreas cercanas",
       "hero-kicker": "Historia Principal", "read-full": "Lee la historia completa →",
       "anchors-title": "Conoce a tus Presentadores",
@@ -45,9 +57,12 @@
       "walter-bio": "Copresentador del Noticiero de Webb Watch 956. El Watchdog — vigilando el ayuntamiento, el condado y todos los demás.",
       "willa-bio": "Copresentadora del Noticiero de Webb Watch 956. Preguntas directas, la comunidad primero — cubriendo las historias de las que habla Laredo.",
       "latest-title": "Últimas Historias",
-      "latest-sub": "Recién salidas de la redacción — publicadas en nuestro sitio de WordPress y actualizadas automáticamente.",
+      "latest-sub": "Recién salidas de la redacción — lee cada historia aquí mismo.",
       "loading": "Cargando historias…",
-      "api-note": "Las historias se publican a diario en",
+      "api-note": "Nuevas historias a diario — vuelve pronto.",
+      "archive-title": "Todas las Historias",
+      "archive-sub": "Todas las historias de Webb Watch 956, de la más reciente a la más antigua. Léelas aquí.",
+      "filter-all": "Todas", "filter-en": "English", "filter-es": "Español",
       "election-title": "Elecciones 2026",
       "election-sub": "Votación anticipada: 19–30 de octubre. Día de las elecciones: 3 de noviembre. Conoce tu boleta antes de ir.",
       "nl-title": "El Boletín de Webb Watch",
@@ -132,8 +147,67 @@
 
   var allPosts = [];
   var photoMap = {};
+  var episodes = null;
   var contentCache = {}; // post id -> [{url,text}] | null
   var lang = "en";
+
+  /* ---- Live Desk newscast player ---- */
+  function fmtEpDate(iso, lg) {
+    try {
+      return new Date(iso + "T12:00:00").toLocaleDateString(lg === "es" ? "es-US" : "en-US",
+        { year: "numeric", month: "long", day: "numeric" });
+    } catch (e) { return iso; }
+  }
+
+  function playEpisode(ep) {
+    var player = document.getElementById("newscast-player");
+    var src = document.getElementById("newscast-source");
+    src.src = ep.file;
+    player.load();
+    document.getElementById("newscast-title").textContent =
+      lang === "es" ? (ep.title_es || ep.title_en) : ep.title_en;
+    document.getElementById("newscast-date").textContent = fmtEpDate(ep.date, lang);
+    document.getElementById("newscast-desc").textContent =
+      lang === "es" ? (ep.desc_es || ep.desc_en || "") : (ep.desc_en || "");
+    var items = document.querySelectorAll("#newscast-archive li");
+    items.forEach(function (li) {
+      li.classList.toggle("active", li.getAttribute("data-file") === ep.file);
+    });
+  }
+
+  function renderEpisodes() {
+    if (!episodes || !episodes.episodes || !episodes.episodes.length) return;
+    var list = document.getElementById("newscast-archive");
+    list.innerHTML = episodes.episodes.map(function (ep) {
+      var t = lang === "es" ? (ep.title_es || ep.title_en) : ep.title_en;
+      return '<li data-file="' + escapeAttr(ep.file) + '"><button type="button">' +
+        "<strong>" + escapeHtml(t) + "</strong>" +
+        '<span class="ep-date">' + escapeHtml(fmtEpDate(ep.date, lang)) + "</span></button></li>";
+    }).join("");
+    list.querySelectorAll("li button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var f = btn.parentElement.getAttribute("data-file");
+        var ep = episodes.episodes.find(function (e) { return e.file === f; });
+        if (ep) { playEpisode(ep); document.getElementById("newscast-player").play(); }
+      });
+    });
+    var latest = episodes.episodes.find(function (e) { return e.file === episodes.latest; }) ||
+      episodes.episodes[0];
+    playEpisode(latest);
+  }
+
+  function loadEpisodes() {
+    fetch(EPISODES_URL).then(function (r) {
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.json();
+    }).then(function (data) {
+      episodes = data;
+      renderEpisodes();
+    }).catch(function () {
+      document.getElementById("newscast-title").textContent =
+        lang === "es" ? "El noticiero llegará pronto." : "The newscast is on its way.";
+    });
+  }
 
   function setLang(next) {
     lang = next;
@@ -151,6 +225,8 @@
     });
     document.getElementById("breaking-text").textContent = dict["breaking-text"];
     render();
+    renderArchive();
+    renderEpisodes();
     enrichSources();
   }
 
@@ -191,8 +267,12 @@
       return '<details class="sources"><summary>' + escapeHtml(dict["sources"]) +
         " (" + s.length + ")</summary><ul>" + items + "</ul></details>";
     }
-    return '<a class="sources-full" href="' + escapeAttr(p.link) + '" target="_blank" rel="noopener">' +
+    return '<a class="sources-full" href="story.html?slug=' + escapeAttr(p.slug) + '">' +
       escapeHtml(dict["sources-full"]) + "</a>";
+  }
+
+  function storyUrl(p) {
+    return "story.html?slug=" + encodeURIComponent(p.slug);
   }
 
   function card(p) {
@@ -206,8 +286,33 @@
       "<h3>" + escapeHtml(title) + "</h3>" +
       '<p class="story-excerpt">' + escapeHtml(ex) + "</p>" +
       sourcesBlock(p) +
-      '<a class="card-link" href="' + escapeAttr(p.link) + '" target="_blank" rel="noopener">' + escapeHtml(read) + "</a>" +
+      '<a class="card-link" href="' + escapeAttr(storyUrl(p)) + '">' + escapeHtml(read) + "</a>" +
       "</article>";
+  }
+
+  /* ---- Full Stories archive ---- */
+  var archiveFilter = "all";
+
+  function renderArchive() {
+    var list = document.getElementById("archive-list");
+    if (!list) return;
+    var dict = I18N[lang];
+    var items = allPosts.filter(function (p) {
+      if (archiveFilter === "all") return true;
+      return isSpanish(p) === (archiveFilter === "es");
+    });
+    list.innerHTML = items.map(function (p) {
+      var title = decodeEntities(stripHtml(p.title.rendered));
+      var badge = isSpanish(p) ? "ES" : "EN";
+      return '<li><span class="archive-date">' + escapeHtml(fmtDate(p.date, lang)) + "</span>" +
+        '<a href="' + escapeAttr(storyUrl(p)) + '">' + escapeHtml(title) + "</a>" +
+        '<span class="lang-badge">' + badge + "</span></li>";
+    }).join("");
+    document.querySelectorAll("#archive-filters button").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-filter") === archiveFilter);
+      var k = btn.getAttribute("data-i18n");
+      if (k && dict[k]) btn.textContent = dict[k];
+    });
   }
 
   function render() {
@@ -225,7 +330,7 @@
       decodeEntities(stripHtml(hero.excerpt.rendered)).slice(0, 220);
     document.getElementById("hero-meta").textContent = fmtDate(hero.date, lang) + " · Webb Watch 956";
     var hl = document.getElementById("hero-link");
-    hl.href = hero.link; hl.target = "_blank"; hl.rel = "noopener";
+    hl.href = storyUrl(hero); hl.removeAttribute("target"); hl.removeAttribute("rel");
     var hfig = document.getElementById("hero-figure");
     var hph = photoMap[hero.slug];
     if (hph) {
@@ -277,6 +382,7 @@
       });
       photoMap = res[1] || {};
       render();
+      renderArchive();
       enrichSources();
     }).catch(function () {
       document.getElementById("story-grid").innerHTML =
@@ -293,6 +399,18 @@
     document.getElementById("nl-email").value = "";
   });
 
-  setLang("en");
+  document.getElementById("archive-filters").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+    archiveFilter = btn.getAttribute("data-filter");
+    renderArchive();
+  });
+
+  var qp = new URLSearchParams(location.search);
+  var ql = qp.get("lang");
+  var startLang = (ql === "es" || ql === "en") ? ql : "en";
+
+  setLang(startLang);
   load();
+  loadEpisodes();
 })();

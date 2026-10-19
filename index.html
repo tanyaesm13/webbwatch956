@@ -20,7 +20,8 @@
       </span>
     </a>
     <nav class="masthead-nav">
-      <a href="#latest" data-i18n="nav-stories">Stories</a>
+      <a href="#livedesk" data-i18n="nav-livedesk">Live Desk</a>
+      <a href="#stories" data-i18n="nav-stories">Stories</a>
       <a href="#anchors" data-i18n="nav-anchors">Anchors</a>
       <a href="#election" data-i18n="nav-election">Election 2026</a>
       <a href="#newsletter" data-i18n="nav-newsletter">Newsletter</a>
@@ -52,6 +53,26 @@
     </div>
   </section>
 
+  <section class="livedesk" id="livedesk">
+    <div class="section-inner">
+      <h2><span class="live-dot" aria-hidden="true"></span> <span data-i18n="livedesk-title">Live Desk — Daily Newscast</span></h2>
+      <p class="section-sub" data-i18n="livedesk-sub">Walter and Willa Webb bring you the day's top Webb County stories, every evening.</p>
+      <div class="livedesk-player">
+        <video id="newscast-player" controls preload="metadata" poster="images/newsdesk.jpg" playsinline>
+          <source id="newscast-source" src="" type="video/mp4">
+        </video>
+        <div class="livedesk-meta">
+          <h3 id="newscast-title">Loading the newscast…</h3>
+          <p class="newscast-date" id="newscast-date"></p>
+          <p id="newscast-desc"></p>
+          <a class="btn-youtube" href="https://www.youtube.com/@WebbWatch956" target="_blank" rel="noopener" data-i18n="livedesk-youtube">🔴 Watch our live webcast on YouTube</a>
+        </div>
+      </div>
+      <h3 class="archive-head" data-i18n="livedesk-archive">Past Newscasts</h3>
+      <ul class="newscast-archive" id="newscast-archive"></ul>
+    </div>
+  </section>
+
   <section class="anchors" id="anchors">
     <div class="section-inner">
       <h2 data-i18n="anchors-title">Meet Your Anchors</h2>
@@ -79,7 +100,20 @@
       <div class="story-grid" id="story-grid">
         <p class="loading" data-i18n="loading">Loading stories…</p>
       </div>
-      <p class="api-note"><span data-i18n="api-note">Stories publish daily on</span> <a href="https://webbwatch956.wordpress.com">webbwatch956.wordpress.com</a></p>
+      <p class="api-note"><span data-i18n="api-note">New stories publish daily — check back often.</span></p>
+    </div>
+  </section>
+
+  <section class="archive" id="stories">
+    <div class="section-inner">
+      <h2 data-i18n="archive-title">All Stories</h2>
+      <p class="section-sub" data-i18n="archive-sub">Every Webb Watch 956 story, newest first. Read them all right here.</p>
+      <div class="archive-filters" id="archive-filters" role="group" aria-label="Language filter">
+        <button type="button" data-filter="all" data-i18n="filter-all" class="active">All</button>
+        <button type="button" data-filter="en" data-i18n="filter-en">English</button>
+        <button type="button" data-filter="es" data-i18n="filter-es">Español</button>
+      </div>
+      <ul class="archive-list" id="archive-list"></ul>
     </div>
   </section>
 
@@ -88,12 +122,12 @@
       <h2 data-i18n="election-title">Election 2026</h2>
       <p class="section-sub" data-i18n="election-sub">Early voting: October 19–30. Election Day: November 3. Know your ballot before you go.</p>
       <div class="election-cards">
-        <a class="election-card" id="ballot-en" href="https://webbwatch956.wordpress.com/2026/10/18/your-webb-county-ballot-every-race-beyond-mayor-and-congress-explained/">
+        <a class="election-card" id="ballot-en" href="story.html?slug=your-webb-county-ballot-every-race-beyond-mayor-and-congress-explained">
           <h3>Your Webb County Ballot</h3>
           <p>Every race beyond mayor and Congress, explained.</p>
           <span class="card-link">Read the guide →</span>
         </a>
-        <a class="election-card" id="ballot-es" href="https://webbwatch956.wordpress.com/2026/10/18/tu-boleta-del-condado-de-webb-todas-las-contiendas-mas-alla-de-alcalde-y-congreso-explicadas/">
+        <a class="election-card" id="ballot-es" href="story.html?slug=tu-boleta-del-condado-de-webb-todas-las-contiendas-mas-alla-de-alcalde-y-congreso-explicadas">
           <h3>Tu Boleta del Condado de Webb</h3>
           <p>Todas las contiendas más allá de alcalde y congreso, explicadas.</p>
           <span class="card-link">Lee la guía →</span>
@@ -126,7 +160,6 @@
       <p class="footer-head" data-i18n="footer-follow">Follow the Watch</p>
       <a href="https://www.instagram.com/webbwatch956/" target="_blank" rel="noopener">Instagram — @webbwatch956</a>
       <a href="https://www.facebook.com/61595222024760" target="_blank" rel="noopener">Facebook — Webb Watch 956</a>
-      <a href="https://webbwatch956.wordpress.com" target="_blank" rel="noopener">WordPress — webbwatch956.wordpress.com</a>
     </div>
   </div>
   <p class="copyright">© 2026 Webb Watch 956. <span data-i18n="footer-rights">All stories end with: Webb Watch 956.</span></p>
