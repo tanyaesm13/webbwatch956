@@ -70,10 +70,11 @@
     return escapeHtml(s).replace(/"/g, "&quot;");
   }
   function fmtDate(iso, lg) {
-    try {
-      return new Date(iso).toLocaleDateString(lg === "es" ? "es-US" : "en-US",
-        { year: "numeric", month: "long", day: "numeric" });
-    } catch (e) { return iso.slice(0, 10); }
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return ""; // never print "Invalid Date" — hide it
+    return d.toLocaleDateString(lg === "es" ? "es-US" : "en-US",
+      { year: "numeric", month: "long", day: "numeric" });
   }
 
   /* Extract the Sources/Fuentes link list from a full post body. */

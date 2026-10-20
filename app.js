@@ -120,10 +120,11 @@
   }
 
   function fmtDate(iso, lang) {
-    try {
-      return new Date(iso).toLocaleDateString(lang === "es" ? "es-US" : "en-US",
-        { year: "numeric", month: "long", day: "numeric" });
-    } catch (e) { return iso.slice(0, 10); }
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return ""; // never print "Invalid Date" — hide it
+    return d.toLocaleDateString(lang === "es" ? "es-US" : "en-US",
+      { year: "numeric", month: "long", day: "numeric" });
   }
 
   function shortUrl(url) {
@@ -165,10 +166,11 @@
 
   /* ---- Live Desk newscast player ---- */
   function fmtEpDate(iso, lg) {
-    try {
-      return new Date(iso + "T12:00:00").toLocaleDateString(lg === "es" ? "es-US" : "en-US",
-        { year: "numeric", month: "long", day: "numeric" });
-    } catch (e) { return iso; }
+    if (!iso) return "";
+    var d = new Date(iso + "T12:00:00");
+    if (isNaN(d.getTime())) return ""; // never print "Invalid Date" — hide it
+    return d.toLocaleDateString(lg === "es" ? "es-US" : "en-US",
+      { year: "numeric", month: "long", day: "numeric" });
   }
 
   function playEpisode(ep) {
@@ -309,7 +311,16 @@
     var list = document.getElementById("archive-list");
     if (!list) return;
     var dict = I18N[lang];
+    // In the "All" view, the hero + Latest Stories grid above already show
+    // the newest stories in the active language — listing them again here
+    // made every one of those titles appear twice on the page. Skip the
+    // ones already on screen; the EN/ES filters still list everything.
+    var shown = {};
+    if (archiveFilter === "all") {
+      renderedPosts().forEach(function (p) { shown[p.slug] = true; });
+    }
     var items = allPosts.filter(function (p) {
+      if (shown[p.slug]) return false;
       if (archiveFilter === "all") return true;
       return isSpanish(p) === (archiveFilter === "es");
     });
