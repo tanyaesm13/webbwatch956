@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-20",
+      "file": "videos/newscast-2026-10-20.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 20, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 20 de octubre de 2026",
+      "desc_en": "Walter & Willa Webb with today's top stories: breaking arrests of Gerardo Navarro, Cesar Montalbo and Cassandra Gonzalez, plus the verified report on the priest killed in Ecuador.",
+      "desc_es": "Walter y Willa Webb con las noticias de hoy: los arrestos de Gerardo Navarro, Cesar Montalbo y Cassandra Gonzalez, además del reporte verificado sobre el sacerdote fallecido en Ecuador."
+    },
+    {
       "date": "2026-10-19",
       "file": "videos/newscast-episode-2026-10-19.mp4",
       "title_en": "Webb Watch 956 News Desk — October 19, 2026",
@@ -25,5 +33,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-19.mp4"
+  "latest": "videos/newscast-2026-10-20.mp4"
 }
