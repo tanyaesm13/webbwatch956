@@ -1,14 +1,4 @@
 {
- "breaking-joshua-galbreath-arrested-organized-retail-theft-felony-oct21": {
-  "src": "images/stories/jail-cellblock-dawn-oct21.jpg",
-  "credit": "Illustration — Webb Watch 956",
-  "source_url": ""
- },
- "ultima-hora-joshua-galbreath-arrestado-robo-organizado-minorista-oct21": {
-  "src": "images/stories/jail-cellblock-dawn-oct21.jpg",
-  "credit": "Illustration — Webb Watch 956",
-  "source_url": ""
- },
  "police-blotter-misdemeanor-roundup-all-oct21": {
   "src": "images/stories/blotter-roundup-illustration-oct21.jpg",
   "credit": "Illustration — Webb Watch 956",
@@ -830,5 +820,15 @@
   "src": "images/stories/beyond-the-956-terry-ward-mugshot.jpg",
   "credit": "Richmond County booking photo via Dangerous Minds",
   "source_url": "https://dangerousminds.net/weird-news/virginia-man-arrested-for-taping-his-wife-chair-football-game/"
+ },
+ "breaking-martin-valadez-arrested-felony-drug-charge-oct21": {
+  "src": "images/stories/blotter-valadez-oct21.jpg",
+  "credit": "Illustration — Webb Watch 956",
+  "source_url": ""
+ },
+ "ultima-hora-martin-valadez-arrestado-cargo-grave-drogas-oct21": {
+  "src": "images/stories/blotter-valadez-oct21.jpg",
+  "credit": "Illustration — Webb Watch 956",
+  "source_url": ""
  }
 }
