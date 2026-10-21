@@ -222,6 +222,15 @@ section h2 {
 .anchor-card h3 { font-size: 1.35rem; color: var(--navy); padding: 16px 20px 4px; }
 .anchor-card p { padding: 0 20px 22px; font-size: .95rem; color: #4a4438; }
 
+/* ---------- Anchors split (owner layout change, Oct 21, 2026) ---------- */
+/* Top section keeps only the morning pair — centered, not stretched full width */
+.anchors-top .anchor-cards { max-width: 780px; margin: 0 auto; }
+/* Bottom on-air team section, down by the radio player: smaller photos */
+.anchors-bottom { background: var(--sand); }
+.anchors-bottom .desk-photo { max-width: 620px; margin: 0 auto 28px; }
+.anchor-cards-sm { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+.anchor-cards-sm .anchor-card img { height: 190px; }
+
 /* ---------- Story grid ---------- */
 .latest { background: var(--sand); }
 .story-grid {
