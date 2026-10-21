@@ -728,5 +728,15 @@
   "src": "images/stories/blotter-federalhold-oct21.jpg",
   "credit": "Illustration — Webb Watch 956",
   "source_url": ""
+ },
+ "lisd-safe-schools-bus-safety-week-parade-oct21": {
+  "src": "images/stories/lisd-safety-parade-oct21.jpg",
+  "credit": "Laredo Independent School District (LISD)",
+  "source_url": "https://www.laredoisd.org/o/ldes/news"
+ },
+ "lisd-semana-escuelas-seguras-parada-oct21": {
+  "src": "images/stories/lisd-safety-parade-oct21.jpg",
+  "credit": "Laredo Independent School District (LISD)",
+  "source_url": "https://www.laredoisd.org/o/ldes/news"
  }
 }
