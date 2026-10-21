@@ -1,0 +1,45 @@
+{
+ "episodes": [
+  {
+   "date": "2026-10-20",
+   "file": "videos/newscast-2026-10-20.mp4",
+   "title_en": "Webb Watch 956 News Desk — October 20, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 20 de octubre de 2026",
+   "desc_en": "Walter & Willa Webb with today's top stories: breaking arrests of Gerardo Navarro, Cesar Montalbo and Cassandra Gonzalez, plus the verified report on the priest killed in Ecuador.",
+   "desc_es": "Walter y Willa Webb con las noticias de hoy: los arrestos de Gerardo Navarro, Cesar Montalbo y Cassandra Gonzalez, además del reporte verificado sobre el sacerdote fallecido en Ecuador."
+  },
+  {
+   "date": "2026-10-19",
+   "file": "videos/newscast-episode-2026-10-19.mp4",
+   "title_en": "Webb Watch 956 News Desk — October 19, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 19 de octubre de 2026",
+   "desc_en": "Walter & Willa Webb with today's top Webb County stories.",
+   "desc_es": "Walter y Willa Webb con las principales historias del Condado de Webb de hoy."
+  },
+  {
+   "date": "2026-10-19",
+   "desc_en": "A quick hello from Walter and Willa Webb, your Webb Watch 956 news anchors.",
+   "desc_es": "Un saludo rápido de Walter y Willa Webb, tus presentadores de Webb Watch 956.",
+   "file": "videos/newscast-2026-10-19.mp4",
+   "title_en": "Meet Walter & Willa — Your Webb Watch 956 Anchors",
+   "title_es": "Conoce a Walter y Willa — Tus Presentadores de Webb Watch 956"
+  },
+  {
+   "date": "2026-10-18",
+   "desc_en": "The premiere broadcast of the Webb Watch 956 News Desk with anchors Walter and Willa Webb.",
+   "desc_es": "La transmisión de estreno del Noticiero de Webb Watch 956 con los presentadores Walter y Willa Webb.",
+   "file": "videos/premiere-short-intro-v2.mp4",
+   "title_en": "Webb Watch 956 News Desk — Premiere",
+   "title_es": "Noticiero de Webb Watch 956 — Estreno"
+  },
+  {
+   "date": "2026-10-21",
+   "desc_en": "Waldo Wolf's midnight video on Nuevo Laredo's showcase at Feria Tamaulipas 2026.",
+   "desc_es": "El video de medianoche de Waldo Wolf sobre la muestra de Nuevo Laredo en la Feria Tamaulipas 2026.",
+   "file": "videos/waldo-2026-10-21.mp4",
+   "title_en": "Waldo Wolf — Nuevo Laredo",
+   "title_es": "Waldo Wolf — Nuevo Laredo"
+  }
+ ],
+ "latest": "videos/newscast-2026-10-20.mp4"
+}
