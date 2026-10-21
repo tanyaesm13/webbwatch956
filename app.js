@@ -41,9 +41,8 @@
       "election-title": "Election 2026",
       "election-sub": "Early voting: October 19–30. Election Day: November 3. Know your ballot before you go.",
       "nl-title": "The Webb Watch Newsletter",
-      "nl-sub": "The day's top Webb County stories, in your inbox. Launching soon — leave your email and we'll let you know.",
-      "nl-ph": "you@example.com", "nl-btn": "Notify me",
-      "nl-note": "You're on the list — the newsletter is coming soon. Thanks for watching with us.",
+      "nl-sub": "The day's top Webb County stories, in your inbox — now on Substack. Subscribe free and never miss a story.",
+      "nl-btn": "Subscribe on Substack",
       "footer-about": "Independent investigative journalism for Webb County, Texas — Laredo and surrounding areas. Bilingual, community-first, always watching.",
       "footer-follow": "Follow the Watch",
       "footer-rights": "All stories end with: Webb Watch 956.",
@@ -82,9 +81,8 @@
       "election-title": "Elecciones 2026",
       "election-sub": "Votación anticipada: 19–30 de octubre. Día de las elecciones: 3 de noviembre. Conoce tu boleta antes de ir.",
       "nl-title": "El Boletín de Webb Watch",
-      "nl-sub": "Las principales historias del Condado de Webb, en tu correo. Próximamente — deja tu correo y te avisaremos.",
-      "nl-ph": "tu@ejemplo.com", "nl-btn": "Avísame",
-      "nl-note": "Ya estás en la lista — el boletín llegará pronto. Gracias por vernos.",
+      "nl-sub": "Las principales historias del Condado de Webb, en tu correo — ahora en Substack. Suscríbete gratis y no te pierdas ninguna historia.",
+      "nl-btn": "Suscríbete en Substack",
       "footer-about": "Periodismo de investigación independiente para el Condado de Webb, Texas — Laredo y áreas cercanas. Bilingüe, la comunidad primero, siempre vigilando.",
       "footer-follow": "Sigue la Vigilancia",
       "footer-rights": "Todas las historias terminan con: Webb Watch 956.",
@@ -468,12 +466,6 @@
 
   document.getElementById("lang-en").addEventListener("click", function () { setLang("en"); });
   document.getElementById("lang-es").addEventListener("click", function () { setLang("es"); });
-
-  document.getElementById("nl-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("nl-note").hidden = false;
-    document.getElementById("nl-email").value = "";
-  });
 
   document.getElementById("archive-filters").addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-filter]");
