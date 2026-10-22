@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-22",
+      "file": "videos/newscast-2026-10-22.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 22, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 22 de octubre de 2026",
+      "desc_en": "Tonight's top stories: the alleged three-count aggravated assault with a deadly weapon booking of Omar Hinojosa-Mariscal, TAMIU's free fall arts season opening tonight with a student art show, the ex Nuevo Laredo mayor located in Austin as Tamaulipas prosecutors ask ICE to deport him, and river buoys advancing between the two Laredos with no CILA permit.",
+      "desc_es": "Las noticias de hoy: la detención de Omar Hinojosa-Mariscal por presunta agresión agravada con arma mortal (tres cargos), la apertura esta noche de la temporada gratuita de arte de otoño de TAMIU con exposición estudiantil, el exalcalde de Nuevo Laredo localizado en Austin mientras la fiscalía de Tamaulipas pide al ICE su deportación, y las boyas del río que avanzan entre los dos Laredos sin permiso de la CILA."
+    },
+    {
       "date": "2026-10-21",
       "file": "videos/newscast-2026-10-21.mp4",
       "title_en": "Webb Watch 956 News Desk — October 21, 2026",
@@ -41,5 +49,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-21.mp4"
+  "latest": "videos/newscast-2026-10-22.mp4"
 }
