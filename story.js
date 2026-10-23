@@ -77,22 +77,80 @@
       { year: "numeric", month: "long", day: "numeric" });
   }
 
+  /* Sources heading in any format the writers use: a plain <p>Sources:</p>,
+     wrapped in <strong>/<em>, or an <h2>/<h3> heading, EN or ES. */
+  var SRC_HEAD = /<(?:p|h[1-6])[^>]*>\s*(?:<(?:strong|em|b|i)[^>]*>\s*)?(Sources|Fuentes):?\s*(?:<\/(?:strong|em|b|i)>\s*)?<\/(?:p|h[1-6])>/i;
+  /* Inline citation paragraph: <p>Sources: Name One; Name Two.</p>, with the
+     text optionally wrapped in <em>. */
+  var SRC_INLINE = /<p[^>]*>\s*(?:<(?:strong|em|b|i)[^>]*>\s*)?(Sources|Fuentes):\s*(?:<\/(?:strong|em|b|i)>\s*)?([\s\S]*?)(?:<\/(?:em|i)>\s*)?<\/p>/i;
+  /* A few stories carry raw-markdown citations: *Sources: Name; Name.* */
+  var SRC_MD = /\n\s*\*{0,2}(Sources|Fuentes):\s*([^\n]+)/i;
+  /* Outlets and portals the stories cite by name (no URL in the text). */
+  var KNOWN_SRC = [
+    { re: /Booking Jail Search/i, url: "https://legacy.webbcountytx.gov/Sheriff/BookingJailSearch/", text: "Webb County Sheriff's Office Booking Jail Search" },
+    { re: /Tyler Odyssey|public-access court records/i, url: "https://publicaccess.webbcountytx.gov/BondSearch/JailingSearch.aspx?ID=400", text: "Webb County court records — Tyler Odyssey portal" },
+    { re: /Laredo Morning Times/i, url: "https://www.lmtonline.com", text: "Laredo Morning Times" },
+    { re: /KGNS/i, url: "https://www.kgns.tv", text: "KGNS-TV" },
+    { re: /Laredo College/i, url: "https://www.laredo.edu", text: "Laredo College" },
+    { re: /TAMIU|Texas A&M International/i, url: "https://www.tamiu.edu", text: "Texas A&M International University" },
+    { re: /Associated Press/i, url: "https://apnews.com", text: "Associated Press" },
+    { re: /Texas Tribune/i, url: "https://www.texastribune.org", text: "The Texas Tribune" },
+    { re: /National Weather Service/i, url: "https://www.weather.gov", text: "National Weather Service" },
+    { re: /FOX 13/i, url: "https://www.fox13news.com", text: "FOX 13 Tampa Bay" },
+    { re: /New York Post/i, url: "https://nypost.com", text: "New York Post" },
+    { re: /Palm Beach Post/i, url: "https://www.palmbeachpost.com", text: "Palm Beach Post" },
+    { re: /WorldStar/i, url: "https://worldstarhiphop.com", text: "WorldStar" },
+    { re: /\bFDA\b/, url: "https://www.fda.gov", text: "U.S. Food & Drug Administration" },
+    { re: /\bCDC\b/, url: "https://www.cdc.gov", text: "Centers for Disease Control and Prevention" },
+    { re: /Agencia Nacional de Aduanas|\bANAM\b/, url: "https://www.anam.gob.mx", text: "Agencia Nacional de Aduanas de México (ANAM)" },
+    { re: /Broward County Sheriff/i, url: "https://www.sheriff.org", text: "Broward County Sheriff's Office" }
+  ];
+  function knownSources(text) {
+    var out = [], seen = {};
+    function push(url, label) {
+      var key = url.replace(/^https?:\/\/(www\.)?/i, "").toLowerCase();
+      if (!seen[key]) { seen[key] = 1; out.push({ url: url, text: label || url }); }
+    }
+    KNOWN_SRC.forEach(function (k) { if (k.re.test(text)) push(k.url, k.text); });
+    var dom = /\b((?:[a-z0-9-]+\.)+(?:com\.mx|com|edu|gov|org|net|mx|tv|io))\b/gi, d;
+    while ((d = dom.exec(text))) {
+      if (/webbwatch956/i.test(d[1])) continue;
+      push("https://" + d[1].toLowerCase(), d[1].toLowerCase());
+    }
+    return out;
+  }
+
   /* Extract the Sources/Fuentes link list from a full post body. */
   function parseSources(html) {
     if (!html) return null;
-    var m = /<p[^>]*>\s*(Sources|Fuentes):\s*<\/p>/i.exec(html);
+    var links = [], a;
+    var im = SRC_INLINE.exec(html);
+    if (im) {
+      links = knownSources(stripHtml(im[2]));
+      if (links.length) return links;
+    }
+    var md = SRC_MD.exec(html);
+    if (md) {
+      links = knownSources(md[2].replace(/\*/g, ""));
+      if (links.length) return links;
+    }
+    var m = SRC_HEAD.exec(html);
     if (!m) return null;
     var tail = html.slice(m.index + m[0].length);
     var end = tail.search(/<p[^>]*>\s*Webb Watch 956\s*<\/p>/i);
     if (end >= 0) tail = tail.slice(0, end);
     var ul = /<ul[^>]*>([\s\S]*?)<\/ul>/i.exec(tail);
-    if (!ul) return null;
-    var links = [];
-    var re = /<a\s+[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, a;
-    while ((a = re.exec(ul[1]))) {
+    var scope = ul ? ul[1] : tail;
+    var re = /<a\s+[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+    while ((a = re.exec(scope))) {
       if (/^#|javascript:/i.test(a[1])) continue;
       links.push({ url: a[1], text: stripHtml(a[2]).trim() || a[1] });
     }
+    if (!links.length && !ul) {
+      var bare = /(https?:\/\/[^\s<")\]]+)/g, b;
+      while ((b = bare.exec(tail))) links.push({ url: b[1], text: b[1] });
+    }
+    if (!links.length) links = knownSources(stripHtml(tail));
     return links.length ? links : null;
   }
 
@@ -111,9 +169,11 @@
   }
 
   function splitArticle(html) {
-    var m = /<p[^>]*>\s*(Sources|Fuentes):\s*<\/p>/i.exec(html);
-    if (!m) return { body: html, sources: parseSources(html) };
-    return { body: html.slice(0, m.index), sources: parseSources(html) };
+    var sources = parseSources(html);
+    if (!sources) return { body: html, sources: null };
+    var m = SRC_HEAD.exec(html) || SRC_INLINE.exec(html) || SRC_MD.exec(html);
+    if (!m) return { body: html, sources: sources };
+    return { body: html.slice(0, m.index), sources: sources };
   }
 
   var slug = new URLSearchParams(location.search).get("slug");
