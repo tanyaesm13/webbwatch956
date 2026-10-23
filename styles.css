@@ -561,3 +561,6 @@ details.sources a:hover { text-decoration: underline; }
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 .sources-full:hover { text-decoration: underline; }
+
+/* Lumi promo headings — Build Your Own Lumi / Join the Galaxy (equal-billing row, Oct 22, 2026): gold on the navy Live Desk panel */
+.livedesk-meta a span { color: var(--gold-light); }
