@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-23",
+      "file": "videos/newscast-2026-10-23.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 23, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 23 de octubre de 2026",
+      "desc_en": "Tonight's top stories: the alleged three-count aggravated assault with a deadly weapon booking of Omar Hinojosa-Mariscal, the arrest of Jose Cuauhtemoc Gonzalez on an alleged third-degree felony assault charge, the arrest of Hiram Lee Robles on three alleged felony child endangerment charges, and DEA Take Back Day in Laredo this Saturday to clean out the medicine cabinet.",
+      "desc_es": "Las noticias de hoy: la detención de Omar Hinojosa-Mariscal por presunta agresión agravada con arma mortal (tres cargos), el arresto de José Cuauhtémoc González por presunto delito grave de agresión en tercer grado, el arresto de Hiram Lee Robles por tres presuntos cargos graves de poner en peligro a menores, y el Día Nacional de Devolución de Medicamentos de la DEA este sábado en Laredo."
+    },
+    {
       "date": "2026-10-22",
       "file": "videos/newscast-2026-10-22.mp4",
       "title_en": "Webb Watch 956 News Desk — October 22, 2026",
@@ -49,5 +57,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-22.mp4"
+  "latest": "videos/newscast-2026-10-23.mp4"
 }
