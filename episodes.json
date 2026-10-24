@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-24",
+      "file": "videos/newscast-2026-10-24.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 24, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 24 de octubre de 2026",
+      "desc_en": "Tonight's top stories: the alleged three-count aggravated assault with a deadly weapon booking of Omar Hinojosa-Mariscal, the arrest of Gilbert Rodriguez on an alleged aggravated assault felony, Mexico's Navy leading citizen trust in Nuevo Laredo at 90.5% in INEGI's September ENSU survey, and the 5th Circuit upholding qualified immunity for Laredo officers sued over a 2021 COVID curfew arrest.",
+      "desc_es": "Las noticias de hoy: la detención de Omar Hinojosa-Mariscal por presunta agresión agravada con arma mortal (tres cargos), el arresto de Gilbert Rodriguez por presunta agresión agravada, la Marina de México liderando la confianza ciudadana en Nuevo Laredo con 90.5% en la encuesta ENSU de septiembre del INEGI, y el Quinto Circuito confirmando la inmunidad calificada de policías de Laredo demandados por un arresto durante el toque de queda por COVID en 2021."
+    },
+    {
       "date": "2026-10-23",
       "file": "videos/newscast-2026-10-23.mp4",
       "title_en": "Webb Watch 956 News Desk — October 23, 2026",
@@ -57,5 +65,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-23.mp4"
+  "latest": "videos/newscast-2026-10-24.mp4"
 }
