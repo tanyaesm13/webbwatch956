@@ -1200,5 +1200,15 @@
   "src": "images/stories/tropical-storm-in-fa-nasa-modis-oct23.jpg",
   "credit": "NASA Worldview / MODIS (Terra) satellite image via NASA EOSDIS (Public Domain)",
   "source_url": "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&FORMAT=image/jpeg&HEIGHT=1000&WIDTH=1100&BBOX=-4,150,22,174&ts=2026-10-24"
+ },
+ "police-blotter-15-booked-end-of-day-roundup-oct23": {
+  "src": "images/stories/blotter-nightly-roundup-oct23.jpg",
+  "credit": "Illustration — Webb Watch 956",
+  "source_url": "",
+ },
+ "registro-policial-15-ingresados-resumen-fin-dia-oct23": {
+  "src": "images/stories/blotter-nightly-roundup-oct23.jpg",
+  "credit": "Ilustración — Webb Watch 956",
+  "source_url": "",
  }
-}
+ }
