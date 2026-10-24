@@ -1,14 +1,14 @@
 {
- "breaking-jose-cuauhtemoc-gonzalez-arrested-assault-felony-oct23": {
-  "src": "images/stories/blotter-gonzalez-jail-cell-oct23.jpg",
-  "credit": "Illustration — Webb Watch 956",
-  "source_url": ""
+ "beyond-the-956-guam-super-typhoon-champi-oct23": {
+  "src": "images/stories/guam-typhoon-champi-dvids-oct23.jpg",
+  "credit": "Alexis Hall via DVIDS (Public Domain)",
+  "source_url": "https://www.dvidshub.net/image/10034420/typhoon-champi-makes-landfall"
  },
- "ultima-hora-jose-cuauhtemoc-gonzalez-arrestado-agresion-delito-grave-oct23": {
-  "src": "images/stories/blotter-gonzalez-jail-cell-oct23.jpg",
-  "credit": "Ilustración — Webb Watch 956",
-  "source_url": ""
- },  
+ "mas-alla-del-956-guam-supertifon-champi-oct23": {
+  "src": "images/stories/guam-typhoon-champi-dvids-oct23.jpg",
+  "credit": "Alexis Hall via DVIDS (Public Domain)",
+  "source_url": "https://www.dvidshub.net/image/10034420/typhoon-champi-makes-landfall"
+ },
  "police-blotter-misdemeanor-roundup-all-oct21": {
   "src": "images/stories/blotter-roundup-illustration-oct21.jpg",
   "credit": "Illustration — Webb Watch 956",
@@ -1171,14 +1171,34 @@
   "credit": "Ilustración — Webb Watch 956",
   "source_url": ""
  },
-  "breaking-hiram-robles-arrested-child-endangerment-felony-oct23": {
-     "src": "images/stories/blotter-robles-jail-perimeter-oct23.jpg",
-     "credit": "Illustration — Webb Watch 956",
-     "source_url": ""
-  },
-  "ultima-hora-hiram-robles-arrestado-peligro-menor-oct23": {
-     "src": "images/stories/blotter-robles-jail-perimeter-oct23.jpg",
-     "credit": "Ilustración — Webb Watch 956",
-     "source_url": ""
-  }
+ "breaking-hiram-robles-arrested-child-endangerment-felony-oct23": {
+  "src": "images/stories/blotter-robles-jail-perimeter-oct23.jpg",
+  "credit": "Illustration — Webb Watch 956",
+  "source_url": ""
+ },
+ "ultima-hora-hiram-robles-arrestado-peligro-menor-oct23": {
+  "src": "images/stories/blotter-robles-jail-perimeter-oct23.jpg",
+  "credit": "Ilustración — Webb Watch 956",
+  "source_url": ""
+ },
+ "breaking-jose-cuauhtemoc-gonzalez-arrested-assault-felony-oct23": {
+  "src": "images/stories/blotter-gonzalez-jail-cell-oct23.jpg",
+  "credit": "Illustration — Webb Watch 956",
+  "source_url": ""
+ },
+ "ultima-hora-jose-cuauhtemoc-gonzalez-arrestado-agresion-delito-grave-oct23": {
+  "src": "images/stories/blotter-gonzalez-jail-cell-oct23.jpg",
+  "credit": "Ilustración — Webb Watch 956",
+  "source_url": ""
+ },
+ "beyond-the-956-tropical-storm-in-fa-guam-watch-oct23": {
+  "src": "images/stories/tropical-storm-in-fa-nasa-modis-oct23.jpg",
+  "credit": "NASA Worldview / MODIS (Terra) satellite image via NASA EOSDIS (Public Domain)",
+  "source_url": "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&FORMAT=image/jpeg&HEIGHT=1000&WIDTH=1100&BBOX=-4,150,22,174&ts=2026-10-24"
+ },
+ "mas-alla-del-956-tormenta-tropical-in-fa-guam-oct23": {
+  "src": "images/stories/tropical-storm-in-fa-nasa-modis-oct23.jpg",
+  "credit": "NASA Worldview / MODIS (Terra) satellite image via NASA EOSDIS (Public Domain)",
+  "source_url": "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor,Coastlines&FORMAT=image/jpeg&HEIGHT=1000&WIDTH=1100&BBOX=-4,150,22,174&ts=2026-10-24"
+ }
 }
