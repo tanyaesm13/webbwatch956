@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-25",
+      "file": "videos/newscast-2026-10-25.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 25, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 25 de octubre de 2026",
+      "desc_en": "Tonight's top stories: the alleged three-count aggravated assault with a deadly weapon booking of Omar Hinojosa-Mariscal, DC's 'Clayface' topping the box office with a No. 1 opening, the midterm campaign's closing weekend with Trump voting early and Obama hitting the trail, and the CDC reporting flu season starting early with activity climbing weeks ahead of the usual build.",
+      "desc_es": "Las noticias de hoy: la detención de Omar Hinojosa-Mariscal por presunta agresión agravada con arma mortal (tres cargos), 'Clayface' de DC liderando la taquilla con un estreno en el primer lugar, el fin de semana de cierre de la campaña de las elecciones intermedias con Trump votando anticipadamente y Obama saliendo a campaña, y los CDC reportando que la temporada de gripe comienza temprano con la actividad subiendo semanas antes de lo habitual."
+    },
+    {
       "date": "2026-10-24",
       "file": "videos/newscast-2026-10-24.mp4",
       "title_en": "Webb Watch 956 News Desk — October 24, 2026",
@@ -65,5 +73,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-24.mp4"
+  "latest": "videos/newscast-2026-10-25.mp4"
 }
