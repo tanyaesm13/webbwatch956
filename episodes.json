@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-26",
+      "file": "videos/newscast-2026-10-26.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 26, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 26 de octubre de 2026",
+      "desc_en": "Tonight's top stories: the alleged three-count aggravated assault with a deadly weapon booking of Omar Hinojosa-Mariscal, truckers mobilizing peacefully at the Nuevo Laredo access and two other Tamaulipas highways with no blockades, Colleen Hoover's 'Verity' arriving on digital after a $162 million theatrical run, and early voting entering its final week in Webb County with five days left to vote early.",
+      "desc_es": "Las noticias de hoy: la detención de Omar Hinojosa-Mariscal por presunta agresión agravada con arma mortal (tres cargos), transportistas movilizándose pacíficamente en el acceso de Nuevo Laredo y otras dos carreteras de Tamaulipas sin bloqueos, 'Verity' de Colleen Hoover llegando a digital tras una recaudación de $162 millones en cines, y la votación anticipada entrando en su última semana en el condado de Webb con cinco días restantes para votar anticipadamente."
+    },
+    {
       "date": "2026-10-25",
       "file": "videos/newscast-2026-10-25.mp4",
       "title_en": "Webb Watch 956 News Desk — October 25, 2026",
@@ -73,5 +81,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-25.mp4"
+  "latest": "videos/newscast-2026-10-26.mp4"
 }
