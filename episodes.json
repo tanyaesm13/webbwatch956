@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-27",
+      "file": "videos/newscast-2026-10-27.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 27, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 27 de octubre de 2026",
+      "desc_en": "Tonight's top stories: a Florida mom arrested at Orlando airport after allegedly leaving four kids home alone during a Las Vegas work trip, tickets on sale for the 59th annual Martin-Nixon football game Nov. 7 at Shirley Field, five children left orphaned after a Las Cruces murder-suicide, and 50 trailers stopping on the highway — not the bridge — in the Nuevo Laredo truckers protest.",
+      "desc_es": "Las noticias de hoy: una madre de Florida arrestada en el aeropuerto de Orlando tras presuntamente dejar solos a sus cuatro hijos durante un viaje de trabajo a Las Vegas, boletos a la venta para el 59.º juego anual de fútbol americano Martin-Nixon el 7 de noviembre en Shirley Field, cinco niños huérfanos tras un asesinato-suicidio en Las Cruces, y 50 tráileres detenidos en la carretera — no en el puente — en la protesta de transportistas en Nuevo Laredo."
+    },
+    {
       "date": "2026-10-26",
       "file": "videos/newscast-2026-10-26.mp4",
       "title_en": "Webb Watch 956 News Desk — October 26, 2026",
@@ -81,5 +89,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-26.mp4"
+  "latest": "videos/newscast-2026-10-27.mp4"
 }
