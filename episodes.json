@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+            "date": "2026-10-28",
+            "file": "videos/webbwatch-special-2026-10-28.mp4",
+            "title_en": "Webb Watch 956 Special — October 28, 2026",
+            "title_es": "Especial de Webb Watch 956 — 28 de octubre de 2026",
+            "desc_en": "A Webb Watch nine five six special from Laredo, Texas. Today: a large fire forces an evacuation at North Central Park; police call a woman's death Laredo's sixth homicide of 2026; and Webb County early voting passes 33,000 ballots. Webb Watch nine five six is presented by LUMI.",
+            "desc_es": "Un especial de Webb Watch nine five six desde Laredo, Texas. Hoy: un gran incendio obliga a evacuar el North Central Park; la policía califica la muerte de una mujer como el sexto homicidio de Laredo en 2026; y la votación anticipada del condado de Webb supera las 33,000 boletas. Webb Watch nine five six es presentado por LUMI."
+    },
+    {
       "date": "2026-10-27",
       "file": "videos/newscast-2026-10-27.mp4",
       "title_en": "Webb Watch 956 News Desk — October 27, 2026",
