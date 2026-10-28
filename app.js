@@ -539,4 +539,81 @@
   setLang(startLang);
   load();
   loadEpisodes();
-})();
+// All Stories folders: group the same archive items by month, then week.
+var ARCHIVE_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function archiveDate(p) {
+  var d = null;
+  if (p.date) {
+    var parts = String(p.date).split("T")[0].split("-");
+    if (parts.length > 2) { d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]), 12, 0, 0, 0); }
+    else { var t = new Date(p.date); if (!isNaN(t.getTime())) { d = t; } }
+  }
+  if (!d && p.slug) {
+    var s = p.slug.toLowerCase();
+    var months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+    var best = -1; var bi = -1;
+    for (var i = 0; i < 12; i++) { var at = s.lastIndexOf("-" + months[i]); if (at > best) { best = at; bi = i; } }
+    if (bi > -1) { var rest = s.slice(best + 4); var day = parseInt(rest, 10); if (!isNaN(day)) { d = new Date(new Date().getFullYear(), bi, day, 12, 0, 0, 0); } }
+  }
+  return d;
+}
+  function archiveWeekLabel(monday) {
+    var sun = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6, 12, 0, 0, 0);
+    var dash = String.fromCharCode(8211);
+    if (monday.getMonth() === sun.getMonth()) { return "Week of " + ARCHIVE_MONTHS[monday.getMonth()] + " " + monday.getDate() + dash + sun.getDate() + ", " + sun.getFullYear(); }
+    return "Week of " + ARCHIVE_MONTHS[monday.getMonth()] + " " + monday.getDate() + dash + ARCHIVE_MONTHS[sun.getMonth()] + " " + sun.getDate() + ", " + sun.getFullYear();
+  }
+  function archiveItem(p) {
+    return '<li><span class="archive-date">' + escapeHtml(fmtDate(p.date, lang)) + '</span><a href="' + escapeAttr(storyUrl(p)) + '">' + escapeHtml(stripHtml(decodeEntities(p.title.rendered || ''))) + '</a><span class="lang-badge">' + (isSpanish(p) ? 'ES' : 'EN') + '</span></li>';
+  }
+  function renderArchive() {
+    var list = document.getElementById("archive-list");
+    if (!list) return;
+    var shown = {};
+    if (archiveFilter === "all") { renderedPosts().forEach(function (p) { shown[p.id] = true; }); }
+    var items = allPosts.filter(function (p) {
+      if (shown[p.id]) { return false; }
+      if (archiveFilter === "en") { return !isSpanish(p); }
+      if (archiveFilter === "es") { return isSpanish(p); }
+      return true;
+    });
+    var months = {}; var monthKeys = []; var undated = [];
+    items.forEach(function (p) {
+      var d = archiveDate(p);
+      if (!d || isNaN(d.getTime())) { undated.push(p); return; }
+      var mon = new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7), 12, 0, 0, 0);
+      var mkey = mon.getFullYear() + "-" + (mon.getMonth() + 1 < 10 ? "0" : "") + (mon.getMonth() + 1);
+      if (!months[mkey]) { months[mkey] = {}; monthKeys.push(mkey); }
+      var wkey = mon.getFullYear() + "-" + (mon.getMonth() + 1) + "-" + mon.getDate();
+      if (!months[mkey][wkey]) { months[mkey][wkey] = { monday: mon, stories: [] }; }
+      months[mkey][wkey].stories.push(p);
+    });
+    monthKeys.sort(); var html = "";
+    monthKeys.forEach(function (mkey) {
+      var parts = mkey.split("-");
+      var label = ARCHIVE_MONTHS[Number(parts[1]) - 1] + " " + parts[0];
+      var weekKeys = Object.keys(months[mkey]).sort(function (a, b) { return months[mkey][a].monday - months[mkey][b].monday; });
+      html += '<li class="archive-month"><details><summary>' + label + '</summary><ul class="archive-weeks">';
+      weekKeys.forEach(function (wkey) {
+        var wk = months[mkey][wkey];
+        html += '<li class="archive-week"><details><summary>' + escapeHtml(archiveWeekLabel(wk.monday)) + '</summary><ul class="archive-list">';
+        wk.stories.forEach(function (p) { html += archiveItem(p); });
+        html += '</ul></details></li>';
+      });
+      html += '</ul></details></li>';
+    });
+    if (undated.length) {
+      html += '<li class="archive-month"><details><summary>Undated</summary><ul class="archive-list">';
+      undated.forEach(function (p) { html += archiveItem(p); });
+      html += '</ul></details></li>';
+    }
+    list.innerHTML = html;
+    var filters = document.getElementById("archive-filters");
+    if (filters) {
+      var btns = filters.querySelectorAll("button[data-filter]");
+      for (var i = 0; i < btns.length; i++) { if (btns[i].getAttribute("data-filter") === archiveFilter) { btns[i].classList.add("active"); } else { btns[i].classList.remove("active"); } }
+    }
+  }
+  
+}
+)();
