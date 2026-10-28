@@ -1,12 +1,12 @@
 {
   "episodes": [
     {
-            "date": "2026-10-28",
-            "file": "videos/webbwatch-special-2026-10-28.mp4",
-            "title_en": "Webb Watch 956 Special — October 28, 2026",
-            "title_es": "Especial de Webb Watch 956 — 28 de octubre de 2026",
-            "desc_en": "A Webb Watch nine five six special from Laredo, Texas. Today: a large fire forces an evacuation at North Central Park; police call a woman's death Laredo's sixth homicide of 2026; and Webb County early voting passes 33,000 ballots. Webb Watch nine five six is presented by LUMI.",
-            "desc_es": "Un especial de Webb Watch nine five six desde Laredo, Texas. Hoy: un gran incendio obliga a evacuar el North Central Park; la policía califica la muerte de una mujer como el sexto homicidio de Laredo en 2026; y la votación anticipada del condado de Webb supera las 33,000 boletas. Webb Watch nine five six es presentado por LUMI."
+      "date": "2026-10-28",
+      "file": "videos/newscast-2026-10-28.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 28, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 28 de octubre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, the Laredo police chief confirms the suspect in the fatal Texana stabbing is a Border Patrol agent, Webb County pauses Rock House site plans while it reviews office space needs, and a family turns to the community to help cover funeral costs for a Laredo teen killed in Zapata.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal detenido por tres cargos de agresión agravada con arma mortal, el jefe de policía de Laredo confirma que el sospechoso del apuñalamiento mortal en Texana es un agente de la Patrulla Fronteriza, el Condado de Webb pausa los planes para el sitio de Rock House mientras revisa sus necesidades de espacio de oficinas, y una familia recurre a la comunidad para ayudar a cubrir los gastos funerarios de un adolescente de Laredo asesinado en Zapata."
     },
     {
       "date": "2026-10-27",
@@ -97,5 +97,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/webbwatch-special-2026-10-28.mp4"
+  "latest": "videos/newscast-2026-10-28.mp4"
 }
