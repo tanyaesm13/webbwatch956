@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-10-30",
+      "file": "videos/newscast-2026-10-30.mp4",
+      "title_en": "Webb Watch 956 News Desk — October 30, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 30 de octubre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, Nuevo León cuts the Colombia bridge toll in half in a bid to grow the Laredo trade route, Nuevo Laredo's 'Mineraliza tu Ganado' program aims for 40 tons of minerals for 200-plus ranchers, and Cáritas Nuevo Laredo collects more than 34 tons of food for vulnerable families.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, Nuevo León reduce a la mitad el peaje del puente Colombia para impulsar la ruta comercial de Laredo, el programa 'Mineraliza tu Ganado' de Nuevo Laredo busca 40 toneladas de minerales para más de 200 ganaderos, y Cáritas Nuevo Laredo recolecta más de 34 toneladas de alimentos para familias vulnerables."
+    },
+    {
       "date": "2026-10-29",
       "file": "videos/newscast-2026-10-29.mp4",
       "title_en": "Webb Watch 956 News Desk — October 29, 2026",
@@ -105,5 +113,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-29.mp4"
+  "latest": "videos/newscast-2026-10-30.mp4"
 }
