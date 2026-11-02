@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-01",
+      "file": "videos/newscast-2026-11-01.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 1, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 1 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: a 29-year-old Laredo man is among five non-U.S. citizens charged with voting-related offenses in South Texas election-integrity cases, legends live on in Nuevo Laredo's old cemetery on Day of the Dead, October and November are Texas' deadliest months for pedestrians according to TxDOT, and John Leeson, the voice of Doctor Who's K-9, dies at 83.",
+      "desc_es": "Las noticias de hoy: un hombre de Laredo de 29 años está entre cinco no ciudadanos acusados de delitos relacionados con el voto en casos de integridad electoral en el sur de Texas, las leyendas viven en el panteón antiguo de Nuevo Laredo en el Día de Muertos, octubre y noviembre son los meses más mortales para los peatones en Texas según TxDOT, y John Leeson, la voz de K-9 en Doctor Who, muere a los 83 años."
+    },
+    {
       "date": "2026-10-31",
       "file": "videos/newscast-2026-10-31.mp4",
       "title_en": "Webb Watch 956 News Desk — October 31, 2026",
@@ -121,5 +129,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-10-31.mp4"
+  "latest": "videos/newscast-2026-11-01.mp4"
 }
