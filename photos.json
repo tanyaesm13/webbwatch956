@@ -1,14 +1,4 @@
 {
-  "police-blotter-17-booked-end-of-day-roundup-nov2": {
-        "src": "images/stories/police-blotter-roundup-lock-nov2.jpg",
-        "credit": "Illustration — Webb Watch 956",
-        "source_url": ""
-  },
-    "registro-policial-17-ingresados-resumen-fin-dia-nov2": {
-          "src": "images/stories/police-blotter-roundup-lock-nov2.jpg",
-          "credit": "Illustration — Webb Watch 956",
-          "source_url": ""
-    },
   "breaking-gilbert-rodriguez-arrested-aggravated-assault-felony-oct24": {
     "src": "images/stories/blotter-rodriguez-yard-oct24.jpg",
     "credit": "Illustration \u2014 Webb Watch 956"
@@ -2068,5 +2058,13 @@
   "laredo-documentos-tdcj-visita-candidata-tesorera-liza-pena-nov2": {
     "src": "images/stories/liza-pena-tdcj-letter-jul2026.jpg",
     "credit": "TDCJ letter, as circulated"
+  },
+  "beyond-the-956-melissa-rycroft-dwi-ambulance-southlake-nov3": {
+    "src": "images/stories/melissa-rycroft-mugshot-nov3.jpg",
+    "credit": "Booking photo, via Irving Weekly"
+  },
+  "mas-alla-del-956-melissa-rycroft-dwi-ambulancia-southlake-nov3": {
+    "src": "images/stories/melissa-rycroft-mugshot-nov3.jpg",
+    "credit": "Booking photo, via Irving Weekly"
   }
 }
