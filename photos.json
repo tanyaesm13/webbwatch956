@@ -2050,5 +2050,13 @@
   "laredo-hombre-ingresado-agresion-resistir-arresto-nov1": {
     "src": "images/stories/roel-lara-mugshot-nov1.jpg",
     "credit": "Booking photo, via Laredo Morning Times"
+  },
+  "laredo-tdcj-visitation-documents-treasurer-candidate-liza-pena-nov2": {
+    "src": "images/stories/liza-pena-tdcj-letter-jul2026.jpg",
+    "credit": "TDCJ letter, as circulated"
+  },
+  "laredo-documentos-tdcj-visita-candidata-tesorera-liza-pena-nov2": {
+    "src": "images/stories/liza-pena-tdcj-letter-jul2026.jpg",
+    "credit": "TDCJ letter, as circulated"
   }
 }
