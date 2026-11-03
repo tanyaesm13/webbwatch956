@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-02",
+      "file": "videos/newscast-2026-11-02.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 2, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 2 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, 20-year-old co-pilot Nathalia Gadelha Filgueiras killed in a Florida Learjet crash, Shah Rukh Khan turns 61 with the first 'King' song 'Tu Mil Jaaye,' and Webb County votes tomorrow in the November 3 joint general election.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, la copiloto Nathalia Gadelha Filgueiras, de 20 años, muere en un accidente de Learjet en Florida, Shah Rukh Khan cumple 61 años con la primera canción de 'King,' 'Tu Mil Jaaye,' y el condado de Webb vota mañana en la elección general conjunta del 3 de noviembre."
+    },
+    {
       "date": "2026-11-01",
       "file": "videos/newscast-2026-11-01.mp4",
       "title_en": "Webb Watch 956 News Desk — November 1, 2026",
@@ -129,5 +137,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-01.mp4"
+  "latest": "videos/newscast-2026-11-02.mp4"
 }
