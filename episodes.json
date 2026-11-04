@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-03",
+      "file": "videos/newscast-2026-11-03.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 3, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 3 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: FBI assisting after a suspicious package was sent to Cuellar's Laredo office, the 2026 Laredo Marathon returns Nov. 15 with a half marathon and five-person relay, COMAPA to suspend water service in Nuevo Laredo's Valle Dorado on Thursday, Nov. 5, and families celebrate Día de Muertos with music, theater and poetry at Nuevo Laredo's Panteón Antiguo.",
+      "desc_es": "Las noticias de hoy: el FBI ayuda tras un paquete sospechoso enviado a la oficina de Cuellar en Laredo, el Maratón de Laredo 2026 regresa el 15 de noviembre con medio maratón y relevo de cinco personas, COMAPA suspenderá el servicio de agua en Valle Dorado de Nuevo Laredo el jueves 5 de noviembre, y las familias celebran el Día de Muertos con música, teatro y poesía en el Panteón Antiguo de Nuevo Laredo."
+    },
+    {
       "date": "2026-11-02",
       "file": "videos/newscast-2026-11-02.mp4",
       "title_en": "Webb Watch 956 News Desk — November 2, 2026",
@@ -137,5 +145,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-02.mp4"
+  "latest": "videos/newscast-2026-11-03.mp4"
 }
