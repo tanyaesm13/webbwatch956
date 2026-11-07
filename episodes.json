@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-06",
+      "file": "videos/newscast-2026-11-06.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 6, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 6 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, 'I Play Rocky' opens in theaters today as 'Rocky' turns 50, a Laredo jury convicts CBP Officer Eliomar Santos on all four counts in an assault case, and TAMIU hosts Area Preview Day Nov. 14 with free rides from the Rio Grande Valley.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, 'I Play Rocky' llega hoy a los cines mientras 'Rocky' cumple 50 años, un jurado de Laredo condena al oficial de CBP Eliomar Santos por los cuatro cargos en un caso de agresión, y TAMIU celebra su Día de Vista Previa el 14 de noviembre con transporte gratuito desde el Valle de Río Grande."
+    },
+    {
       "date": "2026-11-05",
       "file": "videos/newscast-2026-11-05.mp4",
       "title_en": "Webb Watch 956 News Desk — November 5, 2026",
@@ -161,5 +169,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-05.mp4"
+  "latest": "videos/newscast-2026-11-06.mp4"
 }
