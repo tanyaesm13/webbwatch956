@@ -222,15 +222,6 @@ section h2 {
 .anchor-card h3 { font-size: 1.35rem; color: var(--navy); padding: 16px 20px 4px; }
 .anchor-card p { padding: 0 20px 22px; font-size: .95rem; color: #4a4438; }
 
-/* ---------- Anchors split (owner layout change, Oct 21, 2026) ---------- */
-/* Top section keeps only the morning pair — centered, not stretched full width */
-.anchors-top .anchor-cards { max-width: 780px; margin: 0 auto; }
-/* Bottom on-air team section, down by the radio player: smaller photos */
-.anchors-bottom { background: var(--sand); }
-.anchors-bottom .desk-photo { max-width: 620px; margin: 0 auto 28px; }
-.anchor-cards-sm { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
-.anchor-cards-sm .anchor-card img { height: 190px; }
-
 /* ---------- Story grid ---------- */
 .latest { background: var(--sand); }
 .story-grid {
@@ -562,5 +553,13 @@ details.sources a:hover { text-decoration: underline; }
 }
 .sources-full:hover { text-decoration: underline; }
 
-/* Lumi promo headings — Build Your Own Lumi / Join the Galaxy (equal-billing row, Oct 22, 2026): gold on the navy Live Desk panel */
-.livedesk-meta a span { color: var(--gold-light); }
+/* Legacy Resale and Organization sponsor strip (Nov 7, 2026) — Legacy pastels only */
+.sponsor-strip { background: #f7f1e6; border-top: 3px solid #a8bfa0; border-bottom: 3px solid #d9a5a0; padding: 18px 16px; text-align: center; }
+.sponsor-strip-inner { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+.sponsor-strip img { width: 64px; height: 64px; border-radius: 50%; }
+.sponsor-strip-text { text-align: left; }
+.sponsor-strip-eyebrow { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: #6b7f66; font-weight: 700; margin-bottom: 2px; }
+.sponsor-strip-name { font-size: 1.25rem; font-weight: 800; color: #3a3a3a; margin: 0; }
+.sponsor-strip-name a { color: #3a3a3a; text-decoration: none; }
+.sponsor-strip-name a:hover { text-decoration: underline; }
+.sponsor-strip-sub { font-size: .9rem; color: #5a5a5a; margin: 2px 0 0; }
