@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-08",
+   "file": "videos/newscast-2026-11-08.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 8, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 8 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: 88 couples say 'I do' in DIF Nuevo Laredo's seventh collective wedding campaign, Laredo police warn drivers to avoid the flooded Shiloh and Las Cruces intersection, a man is taken into custody after a standoff with deputies in Zapata County, and Susan Saint James, star of 'McMillan & Wife' and 'Kate & Allie,' dies at 80.",
+   "desc_es": "Las noticias de hoy: 88 parejas se dan el 'sí' en la séptima campaña de matrimonios colectivos del DIF Nuevo Laredo, la policía de Laredo advierte a los conductores evitar la intersección inundada de Shiloh y Las Cruces, un hombre es detenido tras un enfrentamiento con agentes en el condado de Zapata, y Susan Saint James, estrella de 'McMillan & Wife' y 'Kate & Allie,' muere a los 80 años."
+  },
+  {
    "date": "2026-11-07",
    "file": "videos/newscast-2026-11-07.mp4",
    "title_en": "Webb Watch 956 News Desk — November 7, 2026",
@@ -177,5 +185,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-07.mp4"
+ "latest": "videos/newscast-2026-11-08.mp4"
 }
