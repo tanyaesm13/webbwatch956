@@ -10,6 +10,51 @@
   var RENDER_COUNT = 13; // hero + 12 grid cards
   var localBySlug = {}; // slug -> local story JSON (website is the publication now)
 
+  /* Fallback thumbnail so no story card is ever imageless (Nov 9, 2026:
+     most recent stories have no story-specific image yet). */
+  var DEFAULT_PHOTO = { src: "images/newsdesk.jpg", credit: "Webb Watch 956" };
+
+  /* A photo entry may be a string ("file.jpg"), a dict with "src", or an
+     older dict with "image" — normalize to {src, credit, source_url}. */
+  function normalizePhoto(ph) {
+    if (!ph) return null;
+    if (typeof ph === "string") return { src: "images/stories/" + ph, credit: "Webb Watch 956" };
+    var src = ph.src || ph.image;
+    if (!src) return null;
+    return { src: src, credit: ph.credit || "Webb Watch 956", source_url: ph.source_url || "" };
+  }
+
+  /* Retry a fetch a few times with backoff. Fresh publishes can 404 briefly
+     while GitHub Pages / the CDN finish deploying — a retry keeps the story
+     on the page instead of dropping it (Nov 9, 2026). */
+  function fetchWithRetry(url, attempts) {
+    attempts = attempts || 3;
+    function tryOnce(n) {
+      var opts = n > 0 ? { cache: "reload" } : undefined;
+      return fetch(url, opts).then(function (r) {
+        if (r.ok) return r;
+        if (n + 1 < attempts) return new Promise(function (res) {
+          setTimeout(function () { res(tryOnce(n + 1)); }, 1500 * (n + 1));
+        });
+        return r; // final attempt: return the (failed) response as-is
+      }).catch(function () {
+        if (n + 1 < attempts) return new Promise(function (res) {
+          setTimeout(function () { res(tryOnce(n + 1)); }, 1500 * (n + 1));
+        });
+        throw new Error("fetch failed");
+      });
+    }
+    return tryOnce(0);
+  }
+
+  /* Same title + same calendar day = the same story published twice.
+     Used to collapse duplicate publishes out of the feed. */
+  function dedupeKey(p) {
+    var t = stripHtml(p.title && p.title.rendered ? p.title.rendered : "")
+      .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    return t + "|" + String(p.date || "").slice(0, 10);
+  }
+
   var I18N = {
     en: {
       "nav-stories": "Stories", "nav-livedesk": "Live Desk", "nav-anchors": "Anchors", "nav-election": "Election 2026",
@@ -233,6 +278,8 @@
       { year: "numeric", month: "long", day: "numeric" });
   }
 
+  var failedEpisodes = {}; // files that failed to load — never retry them in a loop
+
   function playEpisode(ep) {
     var player = document.getElementById("newscast-player");
     var src = document.getElementById("newscast-source");
@@ -247,6 +294,30 @@
     items.forEach(function (li) {
       li.classList.toggle("active", li.getAttribute("data-file") === ep.file);
     });
+    /* If this episode file fails to load (still deploying, or a bad deploy),
+       fall back to the previous episode instead of leaving the player dead
+       with "Unable to play media" (Nov 9, 2026). */
+    if (!player._wwFallbackBound) {
+      player._wwFallbackBound = true;
+      player.addEventListener("error", function () {
+        var cur = src.getAttribute("src") || "";
+        if (!cur || failedEpisodes[cur]) return;
+        failedEpisodes[cur] = true;
+        var list = (episodes && episodes.episodes) || [];
+        var i = list.findIndex(function (e) { return e.file === cur; });
+        var next = list.slice(i + 1).find(function (e) { return !failedEpisodes[e.file]; });
+        if (next) {
+          playEpisode(next);
+          document.getElementById("newscast-desc").textContent =
+            (lang === "es"
+              ? "El noticiero de hoy todavía se está subiendo — aquí está el anterior."
+              : "Today's newscast is still uploading — playing the previous one.");
+        } else {
+          document.getElementById("newscast-title").textContent =
+            lang === "es" ? "El noticiero no se pudo cargar." : "The newscast couldn't be loaded.";
+        }
+      });
+    }
   }
 
   function renderEpisodes() {
@@ -321,8 +392,7 @@
   }
 
   function photoFigure(p, cls) {
-    var ph = photoMap[p.slug];
-    if (!ph) return "";
+    var ph = normalizePhoto(photoMap[p.slug]) || DEFAULT_PHOTO;
     return '<figure class="' + cls + '">' +
       '<img src="' + escapeAttr(ph.src) + '" alt="' +
       escapeAttr(decodeEntities(stripHtml(p.title.rendered))) + '" loading="lazy">' +
@@ -415,16 +485,12 @@
     var hl = document.getElementById("hero-link");
     hl.href = storyUrl(hero); hl.removeAttribute("target"); hl.removeAttribute("rel");
     var hfig = document.getElementById("hero-figure");
-    var hph = photoMap[hero.slug];
-    if (hph) {
-      hfig.hidden = false;
-      var hi = document.getElementById("hero-img");
-      hi.src = hph.src;
-      hi.alt = heroTitle;
-      document.getElementById("hero-credit").innerHTML = "Photo: " + creditCaption(hph);
-    } else {
-      hfig.hidden = true;
-    }
+    var hph = normalizePhoto(photoMap[hero.slug]) || DEFAULT_PHOTO;
+    hfig.hidden = false;
+    var hi = document.getElementById("hero-img");
+    hi.src = hph.src;
+    hi.alt = heroTitle;
+    document.getElementById("hero-credit").innerHTML = "Photo: " + creditCaption(hph);
     document.getElementById("hero-sources").innerHTML = sourcesBlock(hero);
     grid.innerHTML = posts.slice(1, RENDER_COUNT).map(card).join("");
   }
@@ -472,11 +538,11 @@
   }
 
   function loadLocal() {
-    return fetch(LOCAL_INDEX_URL)
+    return fetchWithRetry(LOCAL_INDEX_URL)
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (slugs) {
         return Promise.all((slugs || []).map(function (sg) {
-          return fetch("stories/" + encodeURIComponent(sg) + ".json")
+          return fetchWithRetry("stories/" + encodeURIComponent(sg) + ".json")
             .then(function (r) { return r.ok ? r.json() : null; })
             .catch(function () { return null; });
         }));
@@ -507,11 +573,22 @@
       // Website stories override WordPress entries with the same slug.
       // The "We've Moved" announcement lives on WordPress only — never show it on the official site.
       var HIDDEN_WP_SLUGS = { "weve-moved-nos-mudamos": true };
-      allPosts = wpPosts.filter(function (p) { return !localSlugs[p.slug] && !HIDDEN_WP_SLUGS[p.slug]; })
-        .concat(locals.map(normLocal))
-        .sort(function (a, b) {
-          return new Date(b.date) - new Date(a.date);
-        });
+      // One canonical entry per story: locals first, then WordPress entries
+      // that are neither the same slug nor the same title on the same day
+      // (a story published twice must not appear twice in the feed).
+      var seenKeys = {};
+      var merged = locals.map(normLocal);
+      merged.forEach(function (p) { seenKeys[dedupeKey(p)] = true; });
+      wpPosts.forEach(function (p) {
+        if (localSlugs[p.slug] || HIDDEN_WP_SLUGS[p.slug]) return;
+        var k = dedupeKey(p);
+        if (seenKeys[k]) return;
+        seenKeys[k] = true;
+        merged.push(p);
+      });
+      allPosts = merged.sort(function (a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
       photoMap = res[2] || {};
       render();
       renderArchive();

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Webb Watch 956</title>
+<style>
+  body { background:#0b1e3a; color:#fff; font-family:Georgia,serif; text-align:center; padding:60px 20px; margin:0; }
+  h1 { color:#d4af37; font-size:2em; margin-bottom:.3em; }
+  p { font-size:1.1em; line-height:1.6; }
+  a { color:#d4af37; }
+</style>
+<script>
+  /* Pretty story links (/stories/<slug>) redirect to the story page.
+     Covers any slug without a generated page yet — e.g. a story published
+     minutes ago — so readers never land on a dead link (Nov 9, 2026). */
+  (function () {
+    var m = location.pathname.match(/^\/stories\/([^\/]+)\/?$/);
+    if (m) {
+      var slug = decodeURIComponent(m[1]);
+      document.addEventListener("DOMContentLoaded", function () {
+        var el = document.getElementById("msg");
+        if (el) el.textContent = "Loading story…";
+      });
+      location.replace("/story.html?slug=" + encodeURIComponent(slug));
+    }
+  })();
+</script>
+</head>
+<body>
+<h1>WEBB WATCH 956</h1>
+<p id="msg">We couldn't find that page.</p>
+<p><a href="/">← Back to the homepage</a></p>
+</body>
+</html>

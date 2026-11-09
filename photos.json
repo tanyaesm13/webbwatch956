@@ -728,16 +728,16 @@
   "source_url": ""
  },
  "wes-ent-dolly-parton-tribute-tonight-oct21": {
-  "image": "images/stories/dolly-parton-2010.jpg",
   "credit": "Curtis Hilbun/Dollywood",
   "source_url": "https://commons.wikimedia.org/wiki/File:Dolly_Parton_accepting_Liseberg_Applause_Award_2010_portrait.jpg",
-  "license": "CC BY"
+  "license": "CC BY",
+  "src": "images/stories/dolly-parton-2010.jpg"
  },
  "wes-ent-homenaje-dolly-parton-esta-noche-oct21": {
-  "image": "images/stories/dolly-parton-2010.jpg",
   "credit": "Curtis Hilbun/Dollywood",
   "source_url": "https://commons.wikimedia.org/wiki/File:Dolly_Parton_accepting_Liseberg_Applause_Award_2010_portrait.jpg",
-  "license": "CC BY"
+  "license": "CC BY",
+  "src": "images/stories/dolly-parton-2010.jpg"
  },
  "nuevo-laredo-bomberos-100-years-oct21": {
   "src": "images/stories/bomberos-nl-centenario-oct21.jpg",
@@ -1835,14 +1835,38 @@
   "credit": "Webb Watch 956",
   "source_url": "https://webbwatch956.com"
  },
- "big-texas-little-film-tour-casa-ortiz-oct30-oct29": "big-texas-film-tour-casa-ortiz-oct29.jpg",
- "gran-gira-cine-texas-casa-ortiz-30-oct-oct29": "big-texas-film-tour-casa-ortiz-oct29.jpg",
- "nuevo-laredo-early-rain-colonias-wake-water-oct29": "nuevo-laredo-early-rain-oct29.jpg",
- "nuevo-laredo-lluvias-temprano-colonias-agua-oct29": "nuevo-laredo-early-rain-oct29.jpg",
- "lisd-electronics-recycling-atr-vendor-oct29": "lisd-recycling-vendor-oct29.jpg",
- "lisd-reciclaje-electronica-atr-proveedor-oct29": "lisd-recycling-vendor-oct29.jpg",
- "wes-ent-hunger-games-sunrise-reaping-first-reactions-oct29": "hunger-games-sunrise-reaping-oct29.jpg",
- "wes-ent-juegos-hambre-amanecer-cosecha-primeras-reacciones-oct29": "hunger-games-sunrise-reaping-oct29.jpg",
+ "big-texas-little-film-tour-casa-ortiz-oct30-oct29": {
+  "src": "images/stories/big-texas-film-tour-casa-ortiz-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "gran-gira-cine-texas-casa-ortiz-30-oct-oct29": {
+  "src": "images/stories/big-texas-film-tour-casa-ortiz-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "nuevo-laredo-early-rain-colonias-wake-water-oct29": {
+  "src": "images/stories/nuevo-laredo-early-rain-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "nuevo-laredo-lluvias-temprano-colonias-agua-oct29": {
+  "src": "images/stories/nuevo-laredo-early-rain-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "lisd-electronics-recycling-atr-vendor-oct29": {
+  "src": "images/stories/lisd-recycling-vendor-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "lisd-reciclaje-electronica-atr-proveedor-oct29": {
+  "src": "images/stories/lisd-recycling-vendor-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "wes-ent-hunger-games-sunrise-reaping-first-reactions-oct29": {
+  "src": "images/stories/hunger-games-sunrise-reaping-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "wes-ent-juegos-hambre-amanecer-cosecha-primeras-reacciones-oct29": {
+  "src": "images/stories/hunger-games-sunrise-reaping-oct29.jpg",
+  "credit": "Webb Watch 956"
+ },
  "breaking-eduardo-ramos-arrested-felony-drug-assault-oct29": {
   "src": "images/stories/jail-cell-generic-oct20.jpg",
   "credit": "Illustration — Webb Watch 956"
@@ -2186,14 +2210,14 @@
   "credit": "Illustration — Webb Watch 956"
  },
  "laredo-pickup-truck-crashes-ditch-mcpherson-del-mar-nov6": {
-  "image": "images/stories/laredo-pickup-ditch-mcpherson-del-mar-nov6.jpg",
   "credit": "Webb Watch 956",
-  "source_url": "https://www.facebook.com/reel/2531528100666906/"
+  "source_url": "https://www.facebook.com/reel/2531528100666906/",
+  "src": "images/stories/laredo-pickup-ditch-mcpherson-del-mar-nov6.jpg"
  },
  "laredo-camioneta-choca-zanja-mcpherson-del-mar-nov6": {
-  "image": "images/stories/laredo-pickup-ditch-mcpherson-del-mar-nov6.jpg",
   "credit": "Webb Watch 956",
-  "source_url": "https://www.facebook.com/reel/2531528100666906/"
+  "source_url": "https://www.facebook.com/reel/2531528100666906/",
+  "src": "images/stories/laredo-pickup-ditch-mcpherson-del-mar-nov6.jpg"
  },
  "laredo-major-accident-dodge-challenger-loop-20-nov6": {
   "credit": "Webb Watch 956",
@@ -2236,5 +2260,13 @@
  "registro-policial-10-ingresados-resumen-fin-dia-nov8": {
   "src": "images/stories/blotter-lock-nov8.jpg",
   "credit": "Illustration — Webb Watch 956"
+ },
+ "beyond-the-956-brandon-boyd-unknown-company-nov6": {
+  "src": "images/stories/beyond-the-956-brandon-boyd-unknown-company-nov6.jpg",
+  "credit": "Webb Watch 956"
+ },
+ "mas-alla-del-956-brandon-boyd-unknown-company-nov6": {
+  "src": "images/stories/beyond-the-956-brandon-boyd-unknown-company-nov6.jpg",
+  "credit": "Webb Watch 956"
  }
 }

@@ -4,6 +4,39 @@
 
   var API_BASE = "https://public-api.wordpress.com/wp/v2/sites/webbwatch956.wordpress.com/posts";
   var PHOTOS_URL = "photos.json";
+  var DEFAULT_PHOTO = { src: "images/newsdesk.jpg", credit: "Webb Watch 956" };
+
+  /* Same normalization as app.js: a photo entry may be a string, a dict
+     with "src", or an older dict with "image". */
+  function normalizePhoto(ph) {
+    if (!ph) return null;
+    if (typeof ph === "string") return { src: "images/stories/" + ph, credit: "Webb Watch 956" };
+    var src = ph.src || ph.image;
+    if (!src) return null;
+    return { src: src, credit: ph.credit || "Webb Watch 956", source_url: ph.source_url || "" };
+  }
+
+  /* Retry a fetch a few times with backoff — fresh publishes can 404
+     briefly while the deploy finishes (Nov 9, 2026). */
+  function fetchWithRetry(url, attempts) {
+    attempts = attempts || 3;
+    function tryOnce(n) {
+      var opts = n > 0 ? { cache: "reload" } : undefined;
+      return fetch(url, opts).then(function (r) {
+        if (r.ok) return r;
+        if (n + 1 < attempts) return new Promise(function (res) {
+          setTimeout(function () { res(tryOnce(n + 1)); }, 1500 * (n + 1));
+        });
+        return r;
+      }).catch(function () {
+        if (n + 1 < attempts) return new Promise(function (res) {
+          setTimeout(function () { res(tryOnce(n + 1)); }, 1500 * (n + 1));
+        });
+        throw new Error("fetch failed");
+      });
+    }
+    return tryOnce(0);
+  }
 
   var STR = {
     en: {
@@ -215,17 +248,13 @@
     document.getElementById("art-meta").textContent =
       fmtDate(p.date, lang) + " · Webb Watch 956";
 
-    var ph = photoMap[p.slug];
+    var ph = normalizePhoto(photoMap[p.slug]) || DEFAULT_PHOTO;
     var fig = document.getElementById("art-figure");
-    if (ph) {
-      fig.hidden = false;
-      var img = document.getElementById("art-img");
-      img.src = ph.src;
-      img.alt = title;
-      document.getElementById("art-credit").innerHTML = "Photo: " + creditCaption(ph);
-    } else {
-      fig.hidden = true;
-    }
+    fig.hidden = false;
+    var img = document.getElementById("art-img");
+    img.src = ph.src;
+    img.alt = title;
+    document.getElementById("art-credit").innerHTML = "Photo: " + creditCaption(ph);
 
     var parts = splitArticle(cleanBody(p.content.rendered));
     document.getElementById("art-body").innerHTML = parts.body;
@@ -309,7 +338,7 @@
   function load() {
     if (!slug) { showNotFound(); return; }
     // Website stories first (stories/<slug>.json); WordPress as fallback.
-    var localP = fetch("stories/" + encodeURIComponent(slug) + ".json")
+    var localP = fetchWithRetry("stories/" + encodeURIComponent(slug) + ".json")
       .then(function (r) { return r.ok ? r.json() : null; })
       .catch(function () { return null; });
     var photosP = fetch(PHOTOS_URL).then(function (r) {
@@ -319,6 +348,12 @@
     Promise.all([localP, photosP]).then(function (res) {
       if (res[0]) {
         var s = res[0];
+        /* Canonical-slug redirect: an old slug can point at the one live
+           story instead of serving a duplicate (Nov 9, 2026). */
+        if (s.redirect) {
+          location.replace("story.html?slug=" + encodeURIComponent(s.redirect));
+          return;
+        }
         var p = {
           id: "local-" + s.slug,
           date: s.date,
