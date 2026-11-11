@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-10",
+      "file": "videos/newscast-2026-11-10.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 10, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 10 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, an Indiana mother is charged after her toddler dies in a 118-degree bathtub, James Gunn and Peter Safran step down at DC Studios with Marvel veteran Jeremy Latcham taking over, and Johnny Depp's 'Ebenezer' premieres in London ahead of its Friday theatrical opening.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, una madre de Indiana es acusada tras la muerte de su hija pequeña en una bañera a 118 grados, James Gunn y Peter Safran dejan DC Studios y el veterano de Marvel Jeremy Latcham toma el mando, y 'Ebenezer' de Johnny Depp se estrena en Londres antes de su llegada a los cines el viernes."
+    },
+    {
       "date": "2026-11-09",
       "file": "videos/newscast-2026-11-09.mp4",
       "title_en": "Webb Watch 956 News Desk — November 9, 2026",
@@ -193,5 +201,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-09.mp4"
+  "latest": "videos/newscast-2026-11-10.mp4"
 }
