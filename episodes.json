@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-11",
+      "file": "videos/newscast-2026-11-11.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 11, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 11 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, an Indiana mother is charged after her toddler dies in a 118-degree bathtub, 'The Rings of Power' Season 3 premieres with four episodes and the forging of the One Ring, and Frankie Muniz is hospitalized after a Daytona practice crash.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, una madre de Indiana es acusada tras la muerte de su hija pequeña en una bañera a 118 grados, la temporada 3 de 'The Rings of Power' se estrena con cuatro episodios y la forja del Anillo Único, y Frankie Muniz es hospitalizado tras un choque en una práctica en Daytona."
+    },
+    {
       "date": "2026-11-10",
       "file": "videos/newscast-2026-11-10.mp4",
       "title_en": "Webb Watch 956 News Desk — November 10, 2026",
@@ -201,5 +209,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-10.mp4"
+  "latest": "videos/newscast-2026-11-11.mp4"
 }
