@@ -197,6 +197,13 @@ section h2 {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: .78rem; color: var(--gold-light); white-space: nowrap;
 }
+.newscast-archive .ep-main {
+  display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1;
+}
+.newscast-archive .ep-main strong { display: block; }
+.newscast-archive .ep-desc {
+  display: block; font-size: .85rem; font-weight: 400; color: #d8d2c2; line-height: 1.45;
+}
 @media (max-width: 860px) {
   .livedesk-player { grid-template-columns: 1fr; }
 }

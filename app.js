@@ -279,10 +279,32 @@
   }
 
   var failedEpisodes = {}; // files that failed to load — never retry them in a loop
+  var episodeWatchdog = null;
+
+  /* Fall back to the next older episode that has not failed yet, instead of
+     leaving the player dead with "Unable to play media". */
+  function tryEpisodeFallback(cur) {
+    if (!cur || failedEpisodes[cur]) return;
+    failedEpisodes[cur] = true;
+    var list = (episodes && episodes.episodes) || [];
+    var i = list.findIndex(function (e) { return e.file === cur; });
+    var next = list.slice(i + 1).find(function (e) { return !failedEpisodes[e.file]; });
+    if (next) {
+      playEpisode(next);
+      document.getElementById("newscast-desc").textContent =
+        (lang === "es"
+          ? "El noticiero de hoy todavía se está subiendo — aquí está el anterior."
+          : "Today's newscast is still uploading — playing the previous one.");
+    } else {
+      document.getElementById("newscast-title").textContent =
+        lang === "es" ? "El noticiero no se pudo cargar." : "The newscast couldn't be loaded.";
+    }
+  }
 
   function playEpisode(ep) {
     var player = document.getElementById("newscast-player");
     var src = document.getElementById("newscast-source");
+    if (episodeWatchdog) { clearTimeout(episodeWatchdog); episodeWatchdog = null; }
     src.src = ep.file;
     player.load();
     document.getElementById("newscast-title").textContent =
@@ -296,28 +318,30 @@
     });
     /* If this episode file fails to load (still deploying, or a bad deploy),
        fall back to the previous episode instead of leaving the player dead
-       with "Unable to play media" (Nov 9, 2026). */
+       with "Unable to play media" (Nov 9, 2026). NOTE: a <source> load
+       failure fires "error" on the <source> element, NOT on the <video>
+       element — the Nov 9 fallback only listened on the video, so it never
+       fired. Listen on both. Also add a watchdog: if no metadata arrives
+       within 20s (e.g. a file whose moov atom sits at the end, forcing the
+       browser to fetch the whole file first), fall back instead of sitting
+       dead on a black box. */
     if (!player._wwFallbackBound) {
       player._wwFallbackBound = true;
       player.addEventListener("error", function () {
-        var cur = src.getAttribute("src") || "";
-        if (!cur || failedEpisodes[cur]) return;
-        failedEpisodes[cur] = true;
-        var list = (episodes && episodes.episodes) || [];
-        var i = list.findIndex(function (e) { return e.file === cur; });
-        var next = list.slice(i + 1).find(function (e) { return !failedEpisodes[e.file]; });
-        if (next) {
-          playEpisode(next);
-          document.getElementById("newscast-desc").textContent =
-            (lang === "es"
-              ? "El noticiero de hoy todavía se está subiendo — aquí está el anterior."
-              : "Today's newscast is still uploading — playing the previous one.");
-        } else {
-          document.getElementById("newscast-title").textContent =
-            lang === "es" ? "El noticiero no se pudo cargar." : "The newscast couldn't be loaded.";
-        }
+        tryEpisodeFallback(src.getAttribute("src") || "");
+      });
+      src.addEventListener("error", function () {
+        tryEpisodeFallback(src.getAttribute("src") || "");
+      });
+      player.addEventListener("loadedmetadata", function () {
+        if (episodeWatchdog) { clearTimeout(episodeWatchdog); episodeWatchdog = null; }
       });
     }
+    episodeWatchdog = setTimeout(function () {
+      if (player.readyState < 1 && (src.getAttribute("src") || "") === ep.file) {
+        tryEpisodeFallback(ep.file);
+      }
+    }, 20000);
   }
 
   function renderEpisodes() {
@@ -325,8 +349,10 @@
     var list = document.getElementById("newscast-archive");
     list.innerHTML = episodes.episodes.map(function (ep) {
       var t = lang === "es" ? (ep.title_es || ep.title_en) : ep.title_en;
+      var d = lang === "es" ? (ep.desc_es || ep.desc_en || "") : (ep.desc_en || "");
       return '<li data-file="' + escapeAttr(ep.file) + '"><button type="button">' +
-        "<strong>" + escapeHtml(t) + "</strong>" +
+        '<span class="ep-main"><strong>' + escapeHtml(t) + "</strong>" +
+        '<span class="ep-desc">' + escapeHtml(d) + "</span></span>" +
         '<span class="ep-date">' + escapeHtml(fmtEpDate(ep.date, lang)) + "</span></button></li>";
     }).join("");
     list.querySelectorAll("li button").forEach(function (btn) {
@@ -393,9 +419,14 @@
 
   function photoFigure(p, cls) {
     var ph = normalizePhoto(photoMap[p.slug]) || DEFAULT_PHOTO;
+    /* If a story's image file is missing on the server, fall back to the
+       generic news-desk image instead of a broken-image icon (Nov 9, 2026:
+       new photos.json entries must never show a broken card while their
+       image file is still being uploaded). */
     return '<figure class="' + cls + '">' +
       '<img src="' + escapeAttr(ph.src) + '" alt="' +
-      escapeAttr(decodeEntities(stripHtml(p.title.rendered))) + '" loading="lazy">' +
+      escapeAttr(decodeEntities(stripHtml(p.title.rendered))) + '" loading="lazy" ' +
+      'onerror="this.onerror=null;this.src=\'' + DEFAULT_PHOTO.src + '\';">' +
       "<figcaption>Photo: " + creditCaption(ph) + "</figcaption></figure>";
   }
 
@@ -488,6 +519,7 @@
     var hph = normalizePhoto(photoMap[hero.slug]) || DEFAULT_PHOTO;
     hfig.hidden = false;
     var hi = document.getElementById("hero-img");
+    hi.onerror = function () { hi.onerror = null; hi.src = DEFAULT_PHOTO.src; };
     hi.src = hph.src;
     hi.alt = heroTitle;
     document.getElementById("hero-credit").innerHTML = "Photo: " + creditCaption(hph);
