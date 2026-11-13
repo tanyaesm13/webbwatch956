@@ -137,7 +137,7 @@
 
   <section class="anchors" id="anchors">
     <div class="section-inner">
-      <h2 data-i18n="anchors-title">Meet Your Anchors</h2>
+      <h2 data-i18n="anchors-title">The Daily Report</h2>
       <p class="section-sub" data-i18n="anchors-sub">The digital news anchors of the Webb Watch 956 News Desk — bringing Webb County the stories that matter, every day.</p>
       <img src="images/newsdesk.jpg" alt="Walter and Willa Webb at the Webb Watch 956 News Desk" class="desk-photo">
       <div class="anchor-cards">
@@ -266,7 +266,7 @@
 <div id="lol-player" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a2b4a;color:#fff;display:flex;align-items:center;gap:14px;padding:10px 18px;box-shadow:0 -2px 14px rgba(0,0,0,.45);font-family:inherit;box-sizing:border-box;">
   <button id="lol-playbtn" aria-label="Play La Onda Libre" style="flex:0 0 auto;width:52px;height:52px;border-radius:50%;border:3px solid #e8a33d;background:#e8a33d;color:#1a2b4a;font-size:22px;cursor:pointer;line-height:1;">&#9654;</button>
   <div style="flex:1 1 auto;min-width:0;">
-    <div style="font-weight:800;letter-spacing:.5px;font-size:15px;">&#128025; LA ONDA LIBRE <span style="font-weight:400;font-size:12px;opacity:.75;">· live</span></div>
+    <div style="font-weight:800;letter-spacing:.5px;font-size:15px;">&#128025; LA ONDA LIBRE <span id="lol-live-label" style="font-weight:400;font-size:12px;opacity:.75;">· paused</span></div>
     <div id="lol-nowplaying" style="font-size:13px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tap play to listen</div>
   </div>
   <input id="lol-vol" type="range" min="0" max="100" value="80" aria-label="Volume" style="flex:0 1 110px;accent-color:#e8a33d;cursor:pointer;">
@@ -277,6 +277,7 @@
   var audio = document.getElementById("lol-audio");
   var btn = document.getElementById("lol-playbtn");
   var np = document.getElementById("lol-nowplaying");
+  var liveLabel = document.getElementById("lol-live-label");
   var vol = document.getElementById("lol-vol");
   document.body.style.paddingBottom = "76px";
   audio.volume = 0.8;
@@ -285,11 +286,13 @@
     if (audio.paused) {
       audio.play().then(function(){
         btn.innerHTML = "&#10074;&#10074;";
+        liveLabel.textContent = "· live";
         np.textContent = "Loading stream…";
       }).catch(function(){ np.textContent = "Could not start stream — tap play again"; });
     } else {
       audio.pause();
       btn.innerHTML = "&#9654;";
+      liveLabel.textContent = "· paused";
       np.textContent = "Paused — tap play to resume";
     }
   });
@@ -298,11 +301,14 @@
       .then(function(r){ return r.json(); })
       .then(function(d){
         var s = d && d.now_playing && d.now_playing.song;
-        if (s && (s.artist || s.title)) {
+        /* Only claim "Now playing" while the audio is actually playing —
+           the old tick overwrote the paused text every 30s (Nov 13, 2026). */
+        if (!audio.paused && s && (s.artist || s.title)) {
           np.textContent = "Now playing: " + (s.artist ? s.artist + " — " : "") + (s.title || "");
         }
       }).catch(function(){});
   }
+  tick();
   setInterval(tick, 30000);
 })();
 </script>
