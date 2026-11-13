@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-12",
+      "file": "videos/newscast-2026-11-12.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 12, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 12 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: TAMIU's Dr. Covarrubias joins Mexican and Canadian diplomats at Baylor to weigh North America's future, Thanksgiving in Laredo brings markets, free turkeys, a tree lighting and two morning runs, an e-bike battery explosion destroys an Oregon family home, and two LISD seniors earn full-ride Terry Scholarships to Texas State and UTSA.",
+      "desc_es": "Las noticias de hoy: el Dr. Covarrubias de TAMIU se une a diplomáticos de México y Canadá en Baylor para hablar del futuro de Norteamérica, Acción de Gracias en Laredo trae mercados, pavos gratis, el encendido del árbol y dos carreras matutinas, la explosión de una batería de bicicleta eléctrica destruye una casa familiar en Oregón, y dos estudiantes de LISD ganan becas completas Terry para Texas State y UTSA."
+    },
+    {
       "date": "2026-11-11",
       "file": "videos/newscast-2026-11-11.mp4",
       "title_en": "Webb Watch 956 News Desk — November 11, 2026",
@@ -209,5 +217,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-11.mp4"
+  "latest": "videos/newscast-2026-11-12.mp4"
 }
