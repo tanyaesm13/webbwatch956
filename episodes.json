@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-13",
+      "file": "videos/newscast-2026-11-13.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 13, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 13 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Omar Hinojosa-Mariscal booked on three counts of aggravated assault with a deadly weapon, an Indiana mother is charged after her toddler dies in a 118-degree bathtub, Ella Langley's 'Choosin' Texas' hits a record 27th week at No. 1 on the Billboard Hot 100, and Tony Richards, original W.A.S.P. drummer, dies at 69.",
+      "desc_es": "Las noticias de hoy: Omar Hinojosa-Mariscal ingresa por tres cargos de agresión agravada con arma mortal, una madre de Indiana es acusada tras la muerte de su hija pequeña en una bañera a 118 grados, 'Choosin' Texas' de Ella Langley llega a una 27.ª semana récord en el No. 1 del Billboard Hot 100, y Tony Richards, baterista original de W.A.S.P., muere a los 69 años."
+    },
+    {
       "date": "2026-11-12",
       "file": "videos/newscast-2026-11-12.mp4",
       "title_en": "Webb Watch 956 News Desk — November 12, 2026",
@@ -217,5 +225,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-12.mp4"
+  "latest": "videos/newscast-2026-11-13.mp4"
 }
