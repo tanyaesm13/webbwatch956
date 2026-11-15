@@ -1,6 +1,14 @@
 {
   "episodes": [
     {
+      "date": "2026-11-14",
+      "file": "videos/newscast-2026-11-14.mp4",
+      "title_en": "Webb Watch 956 News Desk — November 14, 2026",
+      "title_es": "Noticiero de Webb Watch 956 — 14 de noviembre de 2026",
+      "desc_en": "Tonight's top stories: Laredo police ask for help finding runaway Sophia Martinez, 13; the Laredo Fire Department and Doctors Hospital launch a food drive for families in need; Nuevo Laredo brings a free Guelaguetza Oaxaqueña show to the border on Sunday, Nov. 22; and TAMIU's men shock the Lone Star Conference with a second-place cross country finish.",
+      "desc_es": "Las noticias de hoy: la policía de Laredo pide ayuda para encontrar a Sophia Martinez, de 13 años, reportada como fugada; el Departamento de Bomberos de Laredo y Doctors Hospital lanzan una colecta de alimentos para familias necesitadas; Nuevo Laredo trae una Guelaguetza Oaxaqueña gratuita a la frontera el domingo 22 de noviembre; y los hombres de TAMIU sorprenden en la Conferencia Lone Star con un segundo lugar en campo traviesa."
+    },
+    {
       "date": "2026-11-13",
       "file": "videos/newscast-2026-11-13.mp4",
       "title_en": "Webb Watch 956 News Desk — November 13, 2026",
@@ -225,5 +233,5 @@
       "title_es": "Noticiero de Webb Watch 956 — Estreno"
     }
   ],
-  "latest": "videos/newscast-2026-11-13.mp4"
+  "latest": "videos/newscast-2026-11-14.mp4"
 }
