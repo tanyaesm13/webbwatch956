@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-16",
+   "file": "videos/newscast-2026-11-16.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 16, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 16 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Nuevo Laredo offers a 90% subsidy on livestock infrastructure packages for ranchers; a new CFE substation in Nuevo Laredo will serve more than 31,000 users; water shuts off tonight near Del Mar Boulevard and McPherson Road; and Ariana Grande cancels tonight's Seth Meyers appearance as Focker-in-Law heads toward its November 25 release.",
+   "desc_es": "Las noticias de hoy: Nuevo Laredo ofrece un subsidio del 90% en paquetes de infraestructura ganadera; una nueva subestación de la CFE en Nuevo Laredo atenderá a más de 31,000 usuarios; se corta el agua esta noche cerca de Del Mar Boulevard y McPherson Road; y Ariana Grande cancela su aparición de esta noche en Seth Meyers mientras Focker-in-Law se acerca a su estreno del 25 de noviembre."
+  },
+  {
    "date": "2026-11-15",
    "file": "videos/newscast-2026-11-15.mp4",
    "title_en": "Webb Watch 956 News Desk — November 15, 2026",
@@ -241,5 +249,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-15.mp4"
+ "latest": "videos/newscast-2026-11-16.mp4"
 }
