@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-17",
+   "file": "videos/newscast-2026-11-17.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 17, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 17 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Brad Pitt returns as Cliff Booth at the Los Angeles world premiere of Cliff Booth Rides Again with Fincher and Tarantino; Mirando City holds a food distribution at Santa Margarita de Escocia Church; a gas leak near Cigarroa Middle School prompts an evacuation, with students safely returning; and Laredo College and the Rey Feo Laredo Foundation award $50,000 in scholarships to 25 students.",
+   "desc_es": "Las noticias de hoy: Brad Pitt regresa como Cliff Booth en el estreno mundial en Los Ángeles de Cliff Booth Rides Again junto a Fincher y Tarantino; Mirando City realiza una distribución de alimentos en la iglesia Santa Margarita de Escocia; una fuga de gas cerca de la escuela secundaria Cigarroa provoca una evacuación, y los estudiantes regresan sanos y salvos; y Laredo College y la Fundación Rey Feo Laredo otorgan $50,000 en becas a 25 estudiantes."
+  },
+  {
    "date": "2026-11-16",
    "file": "videos/newscast-2026-11-16.mp4",
    "title_en": "Webb Watch 956 News Desk — November 16, 2026",
@@ -249,5 +257,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-16.mp4"
+ "latest": "videos/newscast-2026-11-17.mp4"
 }
