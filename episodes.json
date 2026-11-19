@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-18",
+   "file": "videos/newscast-2026-11-18.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 18, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 18 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: GTA VI leads The Game Awards 2026 with eight nominations, including Game of the Year; Gilbert Gonzalez wins Laredo City Council District 1, Melissa Cigarroa wins District 3, and Tyler King wins District 6 in the official canvass.",
+   "desc_es": "Las noticias de hoy: GTA VI lidera los Game Awards 2026 con ocho nominaciones, incluyendo Juego del Año; Gilbert Gonzalez gana el Distrito 1 del Concejo Municipal de Laredo, Melissa Cigarroa gana el Distrito 3 y Tyler King gana el Distrito 6 en el escrutinio oficial."
+  },
+  {
    "date": "2026-11-17",
    "file": "videos/newscast-2026-11-17.mp4",
    "title_en": "Webb Watch 956 News Desk — November 17, 2026",
@@ -257,5 +265,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-17.mp4"
+ "latest": "videos/newscast-2026-11-18.mp4"
 }
