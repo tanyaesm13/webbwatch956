@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-19",
+   "file": "videos/newscast-2026-11-19.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 19, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 19 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: 14 charged in a $22.5 million train cargo-theft ring that allegedly hit at least 36 freight trains; The Hunger Games: Sunrise on the Reaping opens Friday with a $100 million weekend in its sights; Esteban Rangel wins Webb County Treasurer in the official canvass; and former MLB pitcher and 'Olympus Has Fallen' actor Lance Broadway dies at 43.",
+   "desc_es": "Las noticias de hoy: 14 acusados en una red de robo de carga de trenes de $22.5 millones que supuestamente afectó al menos 36 trenes de carga; Los Juegos del Hambre: Amanecer en la cosecha se estrena el viernes con miras a un fin de semana de $100 millones; Esteban Rangel gana la Tesorería del Condado de Webb en el escrutinio oficial; y el exlanzador de las Grandes Ligas y actor de 'Olympus Has Fallen', Lance Broadway, muere a los 43 años."
+  },
+  {
    "date": "2026-11-18",
    "file": "videos/newscast-2026-11-18.mp4",
    "title_en": "Webb Watch 956 News Desk — November 18, 2026",
@@ -265,5 +273,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-18.mp4"
+ "latest": "videos/newscast-2026-11-19.mp4"
 }
