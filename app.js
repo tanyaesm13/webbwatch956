@@ -59,6 +59,11 @@
     en: {
       "nav-stories": "Stories", "nav-livedesk": "Live Desk", "nav-anchors": "Anchors", "nav-election": "Election 2026",
       "nav-newsletter": "Newsletter", "breaking": "LIVE DESK",
+      "nav-study": "Share Your Story",
+      "study-kicker": "WEBB WATCH 956 RESEARCH STUDY",
+      "study-title": "Have you been affected by Priscilla Villarreal Treviño, known as La Gordiloca?",
+      "study-sub": "Share your story confidentially. Your information stays private.",
+      "study-btn": "Share Your Story →",
       "livedesk-title": "Live Desk — Daily Newscast",
       "livedesk-sub": "Walter and Willa Webb bring you the day's top Webb County stories, every evening.",
       "livedesk-archive": "Past Newscasts",
@@ -99,6 +104,11 @@
     es: {
       "nav-stories": "Historias", "nav-livedesk": "En Vivo", "nav-anchors": "Presentadores", "nav-election": "Elecciones 2026",
       "nav-newsletter": "Boletín", "breaking": "EN VIVO",
+      "nav-study": "Cuente Su Historia",
+      "study-kicker": "ESTUDIO DE INVESTIGACIÓN DE WEBB WATCH 956",
+      "study-title": "¿Ha resultado afectado por Priscilla Villarreal Treviño, conocida como La Gordiloca?",
+      "study-sub": "Cuente su historia de forma confidencial. Su información se mantiene privada.",
+      "study-btn": "Cuente Su Historia →",
       "livedesk-title": "En Vivo — Noticiero Diario",
       "livedesk-sub": "Walter y Willa Webb te traen las principales historias del Condado de Webb, cada noche.",
       "livedesk-archive": "Noticieros Anteriores",
