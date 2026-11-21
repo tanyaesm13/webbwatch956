@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-20",
+   "file": "videos/newscast-2026-11-20.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 20, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 20 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Mexico's taekwondo team brings home four medals from Dakar 2026 — the sport's best Youth Olympic showing ever; TAMIU women top Colorado Christian 80-69 behind Jaeda Wade's 18; the Outlet Shoppes at Laredo holds its ninth annual tree lighting tonight; and Martin High students pie teachers in the face for a HOSA fundraiser.",
+   "desc_es": "Las noticias de hoy: el equipo mexicano de taekwondo trae cuatro medallas de Dakar 2026, su mejor actuación olímpica juvenil; las mujeres de TAMIU vencen 80-69 a Colorado Christian con 18 puntos de Jaeda Wade; Outlet Shoppes de Laredo celebra esta noche su novena iluminación del árbol; y estudiantes de Martin High les avientan pastelazos a sus maestros para recaudar fondos para HOSA."
+  },
+  {
    "date": "2026-11-19",
    "file": "videos/newscast-2026-11-19.mp4",
    "title_en": "Webb Watch 956 News Desk — November 19, 2026",
@@ -273,5 +281,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-19.mp4"
+ "latest": "videos/newscast-2026-11-20.mp4"
 }
