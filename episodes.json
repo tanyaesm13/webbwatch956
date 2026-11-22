@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-21",
+   "file": "videos/newscast-2026-11-21.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 21, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 21 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Roberto Mata Jr. arrested on a third-degree felony drug charge; 8 booked in Webb County in the end-of-day roundup; Wicked: For Good opens Saturday, poised to break the musical box office record; and county commissioners donate turkeys to the Children's Advocacy Center for Thanksgiving.",
+   "desc_es": "Las noticias de hoy: Roberto Mata Jr. arrestado por un cargo grave de drogas; 8 personas ingresadas en el condado de Webb en el resumen de fin de día; Wicked: For Good se estrena el sábado y podría romper el récord de taquilla musical; y comisionados del condado donan pavos al Centro de Defensa de Niños para el Día de Acción de Gracias."
+  },
+  {
    "date": "2026-11-20",
    "file": "videos/newscast-2026-11-20.mp4",
    "title_en": "Webb Watch 956 News Desk — November 20, 2026",
@@ -281,5 +289,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-20.mp4"
+ "latest": "videos/newscast-2026-11-21.mp4"
 }
