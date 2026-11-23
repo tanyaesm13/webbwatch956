@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-22",
+   "file": "videos/newscast-2026-11-22.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 22, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 22 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Laredo actor Rogelio Ramos confirms he is a voice in GTA VI; early voting begins Monday in the District 8 special election; a Laredo project would keep semi-trucks off parts of Riverbank Drive; and Nuevo Laredo offers free vasectomies, with registration opening Nov. 25 at 12 clinics.",
+   "desc_es": "Las noticias de hoy: el actor laredense Rogelio Ramos confirma que es una voz en GTA VI; la votación anticipada comienza el lunes en la elección especial del Distrito 8; un proyecto de Laredo mantendría los camiones fuera de partes de Riverbank Drive; y Nuevo Laredo ofrece vasectomías gratuitas, con registro a partir del 25 de noviembre en 12 clínicas."
+  },
+  {
    "date": "2026-11-21",
    "file": "videos/newscast-2026-11-21.mp4",
    "title_en": "Webb Watch 956 News Desk — November 21, 2026",
@@ -289,5 +297,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-21.mp4"
+ "latest": "videos/newscast-2026-11-22.mp4"
 }
