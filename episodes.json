@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-23",
+   "file": "videos/newscast-2026-11-23.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 23, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 23 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: a fire breaks out at Will Smith and Jada Pinkett Smith's $42 million Calabasas estate, with a shed burned and no one hurt; Bubba's 33 donates 10% of sales Tuesday to the South Texas Food Bank; a Webb County contractor is found dead between Rio Bravo and El Cenizo, identified as John Wesley Hammock, 35; and a free sacred-art exhibit of pieces up to 250 years old opens Dec. 3 at Nuevo Laredo's Museo Reyes Meza.",
+   "desc_es": "Las noticias de hoy: un incendio en la finca de $42 millones de Will Smith y Jada Pinkett Smith en Calabasas, con un cobertizo quemado y nadie herido; Bubba's 33 donará el 10% de sus ventas del martes al Banco de Alimentos del Sur de Texas; un contratista del condado de Webb fue hallado muerto entre Río Bravo y El Cenizo, identificado como John Wesley Hammock, de 35 años; y una exposición gratuita de arte sacro de hasta 250 años de antigüedad abre el 3 de diciembre en el Museo Reyes Meza de Nuevo Laredo."
+  },
+  {
    "date": "2026-11-22",
    "file": "videos/newscast-2026-11-22.mp4",
    "title_en": "Webb Watch 956 News Desk — November 22, 2026",
@@ -297,5 +305,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-22.mp4"
+ "latest": "videos/newscast-2026-11-23.mp4"
 }
