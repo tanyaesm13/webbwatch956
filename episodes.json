@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-24",
+   "file": "videos/newscast-2026-11-24.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 24, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 24 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: a fire breaks out at Will Smith and Jada Pinkett Smith's $42 million Calabasas estate, with a shed burned and no one hurt; Laredo police host their first-ever Blue Santa 5K on Dec. 5 to buy Christmas gifts for local kids; Democrats clinch their largest House majority since 1992 as Hubbard defeats Foxx in North Carolina; and flu hospitalizations top 10,000 in a week for the first time this season, the CDC reports.",
+   "desc_es": "Las noticias de hoy: un incendio en la finca de $42 millones de Will Smith y Jada Pinkett Smith en Calabasas, con un cobertizo quemado y nadie herido; la policía de Laredo organiza su primera carrera Blue Santa 5K el 5 de diciembre para comprar regalos de Navidad para niños locales; los demócratas logran su mayoría más grande en la Cámara desde 1992 tras la victoria de Hubbard sobre Foxx en Carolina del Norte; y las hospitalizaciones por gripe superan las 10,000 en una semana por primera vez esta temporada, según los CDC."
+  },
+  {
    "date": "2026-11-23",
    "file": "videos/newscast-2026-11-23.mp4",
    "title_en": "Webb Watch 956 News Desk — November 23, 2026",
@@ -305,5 +313,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-23.mp4"
+ "latest": "videos/newscast-2026-11-24.mp4"
 }
