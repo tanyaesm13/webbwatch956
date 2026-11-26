@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-25",
+   "file": "videos/newscast-2026-11-25.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 25, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 25 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: Webb County reports no measles cases as the U.S. and Mexico lose elimination status; Laredo Little Theatre tickets are on sale for 'A Tuna Christmas'; the St. Augustine Lady Knights embrace early challenges at 5-9; and Veruschka, iconic 1960s supermodel and 'Blow-Up' star, dies at 87.",
+   "desc_es": "Las noticias de hoy: el condado de Webb no reporta casos de sarampión mientras Estados Unidos y México pierden su estatus de eliminación; ya están a la venta los boletos del Laredo Little Theatre para 'A Tuna Christmas'; las Lady Knights de St. Augustine enfrentan los retos iniciales con marca de 5-9; y Veruschka, icónica supermodelo de los años 60 y estrella de 'Blow-Up', muere a los 87 años."
+  },
+  {
    "date": "2026-11-24",
    "file": "videos/newscast-2026-11-24.mp4",
    "title_en": "Webb Watch 956 News Desk — November 24, 2026",
@@ -313,5 +321,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-24.mp4"
+ "latest": "videos/newscast-2026-11-25.mp4"
 }
