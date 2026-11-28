@@ -1,6 +1,14 @@
 {
  "episodes": [
   {
+   "date": "2026-11-27",
+   "file": "videos/newscast-2026-11-27.mp4",
+   "title_en": "Webb Watch 956 News Desk — November 27, 2026",
+   "title_es": "Noticiero de Webb Watch 956 — 27 de noviembre de 2026",
+   "desc_en": "Tonight's top stories: 20 people booked into the Webb County Jail on Nov. 25–27; BTS's 'ARIRANG' crowned the biggest debut of 2026; December elections in Laredo — District 8 votes Dec. 5, mayor and college board runoffs Dec. 12; and the Laredo Chamber marks Small Business Saturday Nov. 28.",
+   "desc_es": "Las noticias de hoy: 20 personas ingresaron a la cárcel del Condado de Webb del 25 al 27 de noviembre; 'ARIRANG' de BTS coronado como el debut más grande de 2026; elecciones de diciembre en Laredo — el Distrito 8 vota el 5 de diciembre, y las segundas vueltas para alcalde y la junta universitaria son el 12 de diciembre; y la Cámara de Comercio de Laredo celebra el Sábado de Pequeños Negocios el 28 de noviembre."
+  },
+  {
    "date": "2026-11-26",
    "file": "videos/newscast-2026-11-26.mp4",
    "title_en": "Webb Watch 956 News Desk — November 26, 2026",
@@ -329,5 +337,5 @@
    "title_es": "Noticiero de Webb Watch 956 — Estreno"
   }
  ],
- "latest": "videos/newscast-2026-11-26.mp4"
+ "latest": "videos/newscast-2026-11-27.mp4"
 }
